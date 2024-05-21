@@ -1,0 +1,21 @@
+{
+  "replace":true,
+  "slots":["card/edge"],
+  "type":"tetra:basic_major_module",
+  "variants": [
+
+    {
+      "key": "edge/paper",
+      "attributes": {
+
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }]}

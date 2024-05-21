@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "slots": [
+    "card/arcanum"
+  ],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "repair": false,
+  "glyph": {
+    "textureX": 64,
+    "textureY": 0
+  },
+  "outcomes": [
+    {
+      "material": {
+          "items":["irons_spellbooks:arcane_ingot"],"count":2
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/mana"
+    },
+    {
+      "material": {
+        "items":["minecraft:netherite_ingot"],"count":2
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/reinforced"
+    }
+  ]
+}

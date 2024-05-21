@@ -1,0 +1,28 @@
+{
+  "replace":true,
+  "slots":["card/cloth"],
+  "type":"tetra:basic_major_module",
+  "variants": [
+    {
+      "key": "cloth/paper",
+      "effects": {
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "cloth/arcane",
+      "effects": {
+        "irons_spellbooks:max_mana": 300
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }]}

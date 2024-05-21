@@ -1,0 +1,14 @@
+[
+  {
+    "predicate": {
+      "items": [ "arcanus:curios_card" ]
+    },
+    "item": "arcanus:card",
+    "modules": {
+      "card/arcanum": ["card/arcanum","arcanum/basic"],
+      "card/cloth": [ "card/cloth", "cloth/paper"],
+      "card/edge": [ "card/edge", "edge/paper" ]
+    },
+    "improvements": {}
+  }
+]

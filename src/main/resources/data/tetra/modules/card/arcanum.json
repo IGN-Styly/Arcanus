@@ -1,0 +1,49 @@
+{
+  "replace":true,
+  "slots":["card/arcanum"],
+  "type":"tetra:basic_major_module",
+  "variants": [
+
+    {
+      "key": "arcanum/mana",
+      "attributes":{
+        "irons_spellbooks:max_mana": 100
+      },
+      "effects": {
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/reinforced",
+      "attributes":{
+        "generic.knockback_resistance": 0.25,
+        "generic.armor_toughness": 4,
+        "irons_spellbooks:max_mana": 25
+      },
+      "effects": {
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },{
+      "key": "arcanum/fool",
+      "attributes": {
+        "irons_spellbooks:max_mana": 500,
+        "**irons_spellbooks:spell_power": 1,
+        "**irons_spellbooks:spell_resist": 0.5
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }]}
