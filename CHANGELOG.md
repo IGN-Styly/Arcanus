@@ -4,4 +4,4 @@
 - Added All schematic for the Arcanums
 - Added Night Effect
 - Added Curios Casting
-- Desing Doc for Cards 2/6 Done.
+- Design Doc for Cards 2/6 Done.
