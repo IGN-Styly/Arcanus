@@ -7,7 +7,9 @@
     {
       "key": "arcanum/mana",
       "attributes":{
-        "irons_spellbooks:max_mana": 100
+        "irons_spellbooks:max_mana": 100,
+        "**irons_spellbooks:spell_power":0.05,
+        "**irons_spellbooks:spell_resist": 0.05
       },
       "effects": {
       },
@@ -21,7 +23,7 @@
     {
       "key": "arcanum/reinforced",
       "attributes":{
-        "generic.knockback_resistance": 0.25,
+        "**generic.knockback_resistance": 0.25,
         "generic.armor_toughness": 4,
         "irons_spellbooks:max_mana": 25
       },
@@ -34,11 +36,11 @@
       },
       "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
     },{
-      "key": "arcanum/fool",
+      "key": "arcanum/speed",
       "attributes": {
-        "irons_spellbooks:max_mana": 500,
-        "**irons_spellbooks:spell_power": 1,
-        "**irons_spellbooks:spell_resist": 0.5
+        "**generic.movement_speed": 0.25,
+        "**generic.attack_speed": 0.10,
+        "**irons_spellbooks:cast_time_reduction":0.1
       },
       "glyph": {
         "textureX": 46,
@@ -46,4 +48,167 @@
         "tint": "ffffff"
       },
       "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
-    }]}
+    },
+    {
+      "key": "arcanum/strength",
+      "attributes": {
+        "**generic.knockback_resistance": 0.05,
+        "**generic.attack_speed": 0.05,
+        "generic.attack_damage": 2
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/cooldown",
+      "attributes": {
+        "**irons_spellbooks:cooldown_reduction": 0.1,
+        "irons_spellbooks:max_mana": 25
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/cast_time",
+      "attributes": {
+        "**irons_spellbooks:cast_time_reduction": 0.1,
+        "irons_spellbooks:max_mana": 25
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/fire",
+      "attributes": {
+        "**irons_spellbooks:fire_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/ice",
+      "attributes": {
+        "**irons_spellbooks:ice_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/lightning",
+      "attributes": {
+        "**irons_spellbooks:lightning_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/holy",
+      "attributes": {
+        "**irons_spellbooks:holy_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/ender",
+      "attributes": {
+        "**irons_spellbooks:ender_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/blood",
+      "attributes": {
+        "**irons_spellbooks:blood_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/evocation",
+      "attributes": {
+        "**irons_spellbooks:evocation_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/nature",
+      "attributes": {
+        "**irons_spellbooks:nature_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/eldritch",
+      "attributes": {
+        "**irons_spellbooks:eldritch_spell_power": 0.15
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "arcanum/permafrost",
+      "attributes": {
+        "**irons_spellbooks:ice_spell_power": 0.10,
+        "**irons_spellbooks:spell_resist": 0.15,
+        "irons_spellbooks:max_mana": 50
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }
+  ]}

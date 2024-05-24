@@ -24,6 +24,104 @@
       },
       "moduleKey": "card/arcanum",
       "moduleVariant": "arcanum/reinforced"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:fire_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/fire"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:ice_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/ice"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:lightning_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/lightning"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:ender_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/ender"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:holy_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/holy"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:blood_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/blood"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:evocation_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/evocation"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:nature_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/nature"
+    },
+    {
+      "material": {
+        "items":["arcanus:eldritch_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/eldritch"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:permafrost_shard"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/permafrost"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:cooldown_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/cooldown"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:arcane_rune"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/cast_time"
+    },
+    {
+      "material": {
+        "items":["minecraft:rabbit_hide"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/speed"
+    },
+    {
+      "material": {
+        "items":["irons_spellbooks:shriving_stone"],"count":1
+      },
+      "moduleKey": "card/arcanum",
+      "moduleVariant": "arcanum/strength"
     }
   ]
 }

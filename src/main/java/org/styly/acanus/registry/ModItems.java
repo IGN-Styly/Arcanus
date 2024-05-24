@@ -17,8 +17,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS= DeferredRegister.create(ForgeRegistries.ITEMS, Arcanus.MODID);
     public static final RegistryObject<Item> BaseArtifact=ITEMS.register(BaseArtifactItem.identifier, BaseArtifactItem::new);
     public static final RegistryObject<Item> Card = ITEMS.register("curios_card",()->new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant(),AttributeRegistry.MAX_MANA.get(), new AttributeModifier("mana",100, AttributeModifier.Operation.ADDITION)));
-
-
+    //Runes
+    public static final RegistryObject<Item> eldritch_rune=ITEMS.register("eldritch_rune",()->new Item(new Item.Properties()));
     // Arcane Amulets, idea by @Amadhe
 
     public static final RegistryObject<Item> BandOfBlessing = ITEMS.register("band_of_blessed",()-> new BasicAttributeCurios(new Item.Properties().stacksTo(1),AttributeRegistry.HOLY_SPELL_POWER.get(), new AttributeModifier("holy",0.15, AttributeModifier.Operation.MULTIPLY_TOTAL)));
