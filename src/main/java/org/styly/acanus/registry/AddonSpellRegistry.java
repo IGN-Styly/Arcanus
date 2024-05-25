@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.styly.acanus.Arcanus;
+import org.styly.acanus.spells.ManaCombustion;
 import org.styly.acanus.spells.ManaSmite;
 import org.styly.acanus.spells.TheFool;
 
@@ -18,6 +19,8 @@ public class AddonSpellRegistry {
     }
     public static final RegistryObject<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
     public static final RegistryObject<AbstractSpell> ManaSmite = SPELLS.register("mana_smite", ManaSmite::new);
+    public static final RegistryObject<AbstractSpell> ManaCombustion = SPELLS.register("mana_combustion", ManaCombustion::new);
+
     public static RegistryObject<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }

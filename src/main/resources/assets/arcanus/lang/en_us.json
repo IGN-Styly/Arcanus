@@ -9,5 +9,10 @@
   "item.arcanus.garland_of_gaian": "Garland of the Gaian",
   "item.arcanus.necklace_of_the_necromancer": "Necklace of the Necromancer",
   "item.arcanus.pyromania_pendent":"Pendant of Pyromania",
-  "item.arcanus.eldritch_rune": "Eldritch Rune"
+  "item.arcanus.eldritch_rune": "Eldritch Rune",
+  "ui.arcanus.vision": "Allows the user the see mana.",
+  "item.arcanus.netherite_mage_helmet": "Dark Netherite Battlemage Hat",
+  "item.arcanus.netherite_mage_chestplate": "Dark Netherite Battlemage Robes",
+  "item.arcanus.netherite_mage_leggings": "Dark Netherite Battlemage Leggings",
+  "item.arcanus.netherite_mage_boots": "Dark Netherite Battlemage Boots"
 }

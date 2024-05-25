@@ -5,3 +5,5 @@
 - Added Night Effect
 - Added Curios Casting
 - Design Doc for Cards 2/6 Done.
+- Retired NightEffectEvent in course of a full armour effect.
+- Added Dark Mage Armor

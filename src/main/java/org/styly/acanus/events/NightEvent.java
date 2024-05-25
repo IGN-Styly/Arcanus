@@ -15,11 +15,11 @@ public class NightEvent {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event){
         if(event.player.level().isClientSide()){return;}
-        if(event.player.getStringUUID().equals("2980a99e-8582-4f63-9b82-f7117bc8be2c")||event.player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c")){
             if(event.player.level().isNight()){
-                event.player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON.get(),60));
 
-            }
+                    event.player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON.get(), 60));
+
+
         };
     }
 }
