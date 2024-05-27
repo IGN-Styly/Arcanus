@@ -7,3 +7,5 @@
 - Design Doc for Cards 2/6 Done.
 - Retired NightEffectEvent in course of a full armour effect.
 - Added Dark Mage Armor
+- Added Garland of Gaia
+- Added Locket of Lightning
