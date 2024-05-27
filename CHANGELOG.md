@@ -9,3 +9,4 @@
 - Added Dark Mage Armor
 - Added Garland of Gaia
 - Added Locket of Lightning
+- Added Curios Card Slot for the Card

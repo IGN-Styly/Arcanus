@@ -35,6 +35,8 @@ public class Arcanus {
         Curios.registerCurioSlot(Curios.CHARM_SLOT, 1, false, null);
         Curios.registerCurioSlot(Curios.BRACELET, 2, false, null);
         Curios.registerCurioSlot(Curios.HEAD,1,false,null);
-     }
+        Curios.registerCurioSlot("card", 1, false, new ResourceLocation("curios:slot/card_slot"));
+
+    }
 
 }
