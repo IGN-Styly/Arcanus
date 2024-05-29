@@ -9,8 +9,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 import org.styly.acanus.events.NightEvent;
 import org.styly.acanus.events.RegisterISSslot;
+import org.styly.acanus.item.FlightRing;
 import org.styly.acanus.registry.*;
 import org.styly.acanus.util.Curios;
+import top.theillusivec4.curios.api.CuriosApi;
 
 
 @Mod(Arcanus.MODID)
@@ -23,6 +25,7 @@ public class Arcanus {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         //MinecraftForge.EVENT_BUS.register(NightEvent.class); Retired
         MinecraftForge.EVENT_BUS.register(RegisterISSslot.class);
+
     }
 
     public static ResourceLocation id(@NotNull String path) {

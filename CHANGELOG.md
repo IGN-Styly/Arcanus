@@ -10,3 +10,5 @@
 - Added Garland of Gaia
 - Added Locket of Lightning
 - Added Curios Card Slot for the Card
+- Added Flight Ring
+- Added Flight Effect
