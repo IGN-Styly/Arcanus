@@ -22,6 +22,7 @@ public class Arcanus {
         ModItems.register(eventBus);
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
+        CreativeTabRegistry.register(eventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         //MinecraftForge.EVENT_BUS.register(NightEvent.class); Retired
         MinecraftForge.EVENT_BUS.register(RegisterISSslot.class);

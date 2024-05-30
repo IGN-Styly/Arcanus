@@ -3,6 +3,18 @@
   "slots":["card/arcanum"],
   "type":"tetra:basic_major_module",
   "variants": [
+    {
+      "key": "arcanum/base",
+      "attribute": {
+        "irons_spellbooks:max_mana": 100
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
 
     {
       "key": "arcanum/mana",

@@ -5,9 +5,8 @@
     },
     "item": "arcanus:card",
     "modules": {
-      "card/arcanum": ["card/arcanum","arcanum/mana"],
-      "card/cloth": [ "card/cloth", "cloth/paper"],
-      "card/edge": [ "card/edge", "edge/paper" ]
+      "card/arcanum": ["card/arcanum","arcanum/base"],
+      "card/cloth": [ "card/cloth", "cloth/paper"]
     },
     "improvements": {}
   }

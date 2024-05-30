@@ -12,3 +12,6 @@
 - Added Curios Card Slot for the Card
 - Added Flight Ring
 - Added Flight Effect
+- Added Creative Tab
+- Fixed Lang bug
+- Fixed Default Curios card not matching replacement

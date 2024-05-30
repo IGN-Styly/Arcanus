@@ -6,7 +6,7 @@
   "item.arcanus.locket_of_lightning": "Locket of Lightning",
   "item.arcanus.wreath_of_winter": "Wreath of Winter",
   "item.arcanus.emblem_of_the_evoker": "Emblem of the Evoker",
-  "item.arcanus.garland_of_gaian": "Garland of the Gaian",
+  "item.arcanus.garland_of_gaia": "Garland of the Gaia",
   "item.arcanus.necklace_of_the_necromancer": "Necklace of the Necromancer",
   "item.arcanus.pyromania_pendent":"Pendant of Pyromania",
   "item.arcanus.eldritch_rune": "Eldritch Rune",
@@ -16,5 +16,6 @@
   "item.arcanus.netherite_mage_leggings": "Dark Netherite Battlemage Leggings",
   "item.arcanus.netherite_mage_boots": "Dark Netherite Battlemage Boots",
   "curios.identifier.card": "Card",
-  "curios.modifiers.card": "When worn as Card:"
+  "curios.modifiers.card": "When worn as Card:",
+  "item_group.arcanus.items": "Arcanus"
 }
