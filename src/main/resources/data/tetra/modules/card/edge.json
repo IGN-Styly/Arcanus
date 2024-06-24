@@ -358,5 +358,286 @@
         "tint": "ffffff"
       },
       "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/blazing",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:cast_time_reduction": 0.02,
+        "**irons_spellbooks:fire_spell_power": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/wooly",
+      "attributes": {
+        "**irons_spellbooks:cooldown_reduction":0.03,
+        "**irons_spellbooks:cast_time_reduction": 0.02,
+        "**irons_spellbooks:spell_resist": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/thorny",
+      "attributes": {
+        "generic.armor_toughness": 2,
+        "generic.armor": 2
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/prismatic",
+      "attributes": {
+        "irons_spellbooks:max_mana": 10,
+        "**irons_spellbooks:ice_spell_power":0.05,
+        "**irons_spellbooks:spell_resist": 0.1
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/mossy",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:nature_spell_power":0.05,
+        "**irons_spellbooks:cooldown_reduction": 0.02,
+        "**irons_spellbooks:cast_time_reduction": 0.02
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/thunderous",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:lightning_spell_power":0.05,
+        "**irons_spellbooks:cooldown_reduction": 0.02,
+        "**irons_spellbooks:cast_time_reduction": 0.02
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/forgotten",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:eldritch_spell_power":0.10,
+        "**irons_spellbooks:mana_regen": -0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/dragon_skin",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:ender_spell_power":0.07,
+        "generic.armor": 2,
+        "**irons_spellbooks:cast_time_reduction": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/lapis",
+      "attributes": {
+        "**irons_spellbooks:cast_time_reduction": 0.25
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/copper",
+      "attributes": {
+        "irons_spellbooks:max_mana": 25,
+        "**irons_spellbooks:lightning_spell_power":0.02,
+        "**irons_spellbooks:mana_regen": 0.15,
+        "**irons_spellbooks:lightning_magic_resist": 0.25
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/blossoming",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:nature_spell_power":0.30,
+        "**irons_spellbooks:spell_power": -0.05,
+        "**irons_spellbooks:cast_time_reduction": 0.02,
+        "**irons_spellbooks:spell_resist": -0.1,
+        "**irons_spellbooks:mana_regen": 0.15
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/holy",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:holy_spell_power":0.05,
+        "**irons_spellbooks:cast_time_reduction": 0.02,
+        "**irons_spellbooks:cooldown_reduction": 0.02
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/summoner",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:evocation_spell_power":0.05,
+        "**irons_spellbooks:cast_time_reduction": 0.02,
+        "**irons_spellbooks:spell_power": -0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/withered",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:blood_spell_power":0.2,
+        "**irons_spellbooks:spell_power":-0.05,
+        "**irons_spellbooks:mana_regen": 0.15,
+        "**irons_spellbooks:spell_resist":-0.07
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/arcane_cloth",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:cast_time_reduction": 0.1,
+        "**irons_spellbooks:cooldown_reduction": 0.2
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/arcane_silk",
+      "attributes": {
+        "irons_spellbooks:max_mana": 25,
+        "**irons_spellbooks:mana_regen":0.25,
+        "**irons_spellbooks:cooldown_reduction": 0.1
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
     }
   ]}
