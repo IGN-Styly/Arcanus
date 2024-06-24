@@ -120,7 +120,10 @@ public class ManaSmite extends AbstractSpell {
         //Setting mob type to undead means the smite enchantment also adds to the spell's damage. Seems fitting.
         return getSpellPower(spellLevel, entity) + Utils.getWeaponDamage(entity, MobType.UNDEAD);
     }
-
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        return player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c");
+    }
 
     private String getDamageText(int spellLevel, LivingEntity entity) {
         if (entity != null) {

@@ -36,6 +36,9 @@ public class ModItems {
     public static final RegistryObject<Item> WreathOfWinter = ITEMS.register("wreath_of_winter",()-> new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant(),AttributeRegistry.ICE_SPELL_POWER.get(), new AttributeModifier("ice",0.15, AttributeModifier.Operation.MULTIPLY_TOTAL)));
 
 
+    //cool materials
+    public static final RegistryObject<Item> ARCANESILK = ITEMS.register("arcane_silk",()->new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
+
     //Cool ring
     public static final RegistryObject<Item> RING_OF_FLIGHT = ITEMS.register("flight_ring", FlightRing::new);
     // Lore Armor

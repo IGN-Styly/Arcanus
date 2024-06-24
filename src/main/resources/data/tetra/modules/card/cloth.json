@@ -5,7 +5,8 @@
   "variants": [
     {
       "key": "cloth/paper",
-      "effects": {
+      "attributes": {
+        "irons_spellbooks:max_mana": 10
       },
       "glyph": {
         "textureX": 46,
@@ -16,8 +17,10 @@
     },
     {
       "key": "cloth/arcane",
-      "effects": {
-        "irons_spellbooks:max_mana": 300
+      "attributes": {
+        "irons_spellbooks:max_mana": 100,
+        "**irons_spellbooks:cast_time_reduction":0.05,
+        "**irons_spellbooks:cooldown_reduction":0.05
       },
       "glyph": {
         "textureX": 46,
@@ -25,4 +28,61 @@
         "tint": "ffffff"
       },
       "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
-    }]}
+    },
+    {
+      "key": "cloth/silk",
+      "attributes": {
+        "irons_spellbooks:max_mana": 200,
+        "**irons_spellbooks:cast_time_reduction":0.25,
+        "**irons_spellbooks:cooldown_reduction":0.25
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "cloth/sinew",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:cast_time_reduction":0.30,
+        "**irons_spellbooks:cooldown_reduction":0.30
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "cloth/book",
+      "attributes": {
+        "irons_spellbooks:max_mana": 300,
+        "**irons_spellbooks:cast_time_reduction":-0.10,
+        "**irons_spellbooks:cooldown_reduction":-0.10
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "cloth/cinder",
+      "attributes": {
+        "irons_spellbooks:max_mana": 25,
+        "**irons_spellbooks:cast_time_reduction":0.10,
+        "**irons_spellbooks:cooldown_reduction":0.10
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }
+  ]}

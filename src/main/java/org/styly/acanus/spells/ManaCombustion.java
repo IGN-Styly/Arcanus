@@ -12,6 +12,7 @@ import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.fireball.MagicFireball;
+import io.redspace.ironsspellbooks.particle.BlastwaveParticleOptions;
 import io.redspace.ironsspellbooks.particle.ShockwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import net.minecraft.core.particles.ParticleTypes;
@@ -52,7 +53,7 @@ public class ManaCombustion extends AbstractSpell {
 
     public ManaCombustion() {
         this.manaCostPerLevel = 15;
-        this.baseSpellPower = 25;
+        this.baseSpellPower = 50;
         this.spellPowerPerLevel = 3;
         this.castTime = 16;
         this.baseManaCost = 300;
@@ -99,16 +100,22 @@ public class ManaCombustion extends AbstractSpell {
         float radius = 15f;
         Vec3 smiteLocation = Utils.moveToRelativeGroundLevel(level, entity.getEyePosition().add(entity.getForward().multiply(1.35f, 0, 1.35f)), 1);
         MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.ELDRITCH.get().getTargetingColor(), radius * 2, true), smiteLocation.x, smiteLocation.y, smiteLocation.z, 1, 0, 0, 0, 0, true);
-        MagicManager.spawnParticles(level, ParticleTypes.ELECTRIC_SPARK, smiteLocation.x, smiteLocation.y, smiteLocation.z, 50, 0, 0, 0, 1, false);
+        MagicManager.spawnParticles(level, new BlastwaveParticleOptions(SchoolRegistry.ELDRITCH.get().getTargetingColor(),1), smiteLocation.x, smiteLocation.y, smiteLocation.z, 50, 0, 0, 0, 1, false);
         CameraShakeManager.addCameraShake(new CameraShakeData(42, smiteLocation, 10));
-        Vec3 origin = entity.getEyePosition();
-        MagicFireball fireball = new MagicFireball(level, entity);
 
-        fireball.setDamage(getDamage(spellLevel, entity));
-        fireball.setExplosionRadius(15);
-        fireball.setPos(origin.add(entity.getForward()).subtract(0, fireball.getBbHeight() / 2, 0));
-        fireball.shoot(new Vec3(0,-1,0));
-        level.addFreshEntity(fireball);
+        var entities = level.getEntities(entity, AABB.ofSize(smiteLocation, radius * 2, radius * 4, radius * 2));
+        for (Entity targetEntity : entities) {
+            //double distance = targetEntity.distanceToSqr(smiteLocation);
+            if (targetEntity.isAlive() && targetEntity.isPickable()) {
+                if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), this.getDamageSource(entity))) {
+                    int i = EnchantmentHelper.getFireAspect(entity);
+                    if (i > 0) {
+                        targetEntity.setSecondsOnFire(i * 4);
+                    }
+                    EnchantmentHelper.doPostDamageEffects(entity, targetEntity);
+                }
+            }
+        }
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
@@ -116,7 +123,10 @@ public class ManaCombustion extends AbstractSpell {
         //Setting mob type to undead means the smite enchantment also adds to the spell's damage. Seems fitting.
         return getSpellPower(spellLevel, entity) + Utils.getWeaponDamage(entity, MobType.UNDEAD);
     }
-
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        return player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c");
+    }
 
     private String getDamageText(int spellLevel, LivingEntity entity) {
         if (entity != null) {

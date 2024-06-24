@@ -5,8 +5,12 @@
   "variants": [
 
     {
-      "key": "edge/paper",
+      "key": "edge/netherite",
       "attributes": {
+        "irons_spellbooks:max_mana": 25,
+        "**irons_spellbooks:cast_time_reduction":0.05,
+        "**irons_spellbooks:cooldown_reduction":0.05,
+        "generic.attack_damage": 1
       },
       "effects": {
 
@@ -17,4 +21,342 @@
         "tint": "ffffff"
       },
       "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
-    }]}
+    },
+    {
+      "key": "edge/arcane",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:cast_time_reduction":0.06,
+        "**irons_spellbooks:cooldown_reduction":0.06
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/iron",
+      "attributes": {
+        "irons_spellbooks:max_mana": 20,
+        "**irons_spellbooks:cast_time_reduction":0.03,
+        "**irons_spellbooks:cooldown_reduction":0.03,
+        "generic.attack_damage": 1
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/gold",
+      "attributes": {
+        "irons_spellbooks:max_mana": 35,
+        "**irons_spellbooks:cast_time_reduction":0.03,
+        "**irons_spellbooks:cooldown_reduction":0.03
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/bone",
+      "attributes": {
+        "irons_spellbooks:max_mana": 10,
+        "**irons_spellbooks:cast_time_reduction":0.01,
+        "**irons_spellbooks:cooldown_reduction":0.01
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/frozen_bone",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:ice_spell_power": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/blood",
+      "attributes": {
+        "irons_spellbooks:max_mana": 40,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:blood_spell_power": 0.07
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/permafrost",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:ice_spell_power": 0.07
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/pristine_diamond",
+      "attributes": {
+        "irons_spellbooks:max_mana": 75,
+        "**irons_spellbooks:cast_time_reduction":0.05,
+        "**irons_spellbooks:cooldown_reduction":0.05,
+        "**irons_spellbooks:spell_power": 0.1
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/pristine_emerald",
+      "attributes": {
+        "irons_spellbooks:max_mana": 50,
+        "**irons_spellbooks:cast_time_reduction":0.04,
+        "**irons_spellbooks:cooldown_reduction":0.04,
+        "**irons_spellbooks:spell_power": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/pristine_amethyst",
+      "attributes": {
+        "irons_spellbooks:max_mana": 40,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:spell_power": 0.04
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/diamond",
+      "attributes": {
+        "irons_spellbooks:max_mana": 45,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:spell_power": 0.05
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/amethyst",
+      "attributes": {
+        "irons_spellbooks:max_mana": 20,
+        "**irons_spellbooks:cast_time_reduction":0.01,
+        "**irons_spellbooks:cooldown_reduction":0.01,
+        "**irons_spellbooks:spell_power": 0.07
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/emerald",
+      "attributes": {
+        "irons_spellbooks:max_mana": 25,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:spell_power": 0.02
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/dragon",
+      "attributes": {
+        "irons_spellbooks:max_mana": 35,
+        "**irons_spellbooks:cast_time_reduction":0.02,
+        "**irons_spellbooks:cooldown_reduction":0.02,
+        "**irons_spellbooks:ender_spell_power": 0.07
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/heartofthesea",
+      "attributes": {
+        "irons_spellbooks:max_mana": 30,
+        "**irons_spellbooks:cast_time_reduction":0.03,
+        "**irons_spellbooks:cooldown_reduction":0.03,
+        "**irons_spellbooks:ice_spell_power": 0.04
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/bamboo",
+      "attributes": {
+        "irons_spellbooks:max_mana": 5,
+        "**irons_spellbooks:spell_power":-0.05,
+        "**irons_spellbooks:mana_regen":0.25,
+        "**irons_spellbooks:nature_spell_power": 0.03
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/wood",
+      "attributes": {
+        "irons_spellbooks:max_mana": 10,
+        "**irons_spellbooks:mana_regen":0.05,
+        "**irons_spellbooks:spell_resist": 0.03
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/warpedwood",
+      "attributes": {
+        "irons_spellbooks:max_mana": -50,
+        "**irons_spellbooks:mana_regen":0.5,
+        "**irons_spellbooks:spell_resist": -0.20
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    },
+    {
+      "key": "edge/crimsonwood",
+      "attributes": {
+        "irons_spellbooks:max_mana": 10,
+        "**irons_spellbooks:spell_power":0.03,
+        "**irons_spellbooks:fire_spell_power": 0.01,
+        "**irons_spellbooks:fire_magic_resist": 0.02
+      },
+      "effects": {
+
+      },
+      "glyph": {
+        "textureX": 46,
+        "textureY": 16,
+        "tint": "ffffff"
+      },
+      "models": [{ "location": "tetra:items/module/sword/blade/example/metal" }]
+    }
+  ]}

@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.styly.acanus.Arcanus;
@@ -44,6 +45,10 @@ public class TheFool extends AbstractSpell {
         this.baseSpellPower = 1;
         this.castTime = 15;
         this.baseManaCost = 250;
+    }
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+         return player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c");
     }
 
 
