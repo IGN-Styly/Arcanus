@@ -29,13 +29,13 @@ public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem 
                 && !leggings.isEmpty() && !boots.isEmpty();
     }
 
+
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (!world.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player)) {
-                if(world.isNight()){
-                    player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON,60));
-                }
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if(!pLevel.isClientSide&&pEntity instanceof Player&&pLevel.isNight()){
+            if(hasFullSuitOfArmorOn((Player) pEntity)){
+                Player player = (Player) pEntity;
+                player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON,60));
             }
         }
     }
@@ -49,7 +49,7 @@ public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem 
         if (itemStack.getItem() instanceof ArmorItem armorItem && armorItem.getType() == ArmorItem.Type.CHESTPLATE) {
             if (!ISpellContainer.isSpellContainer(itemStack)) {
                 var spellContainer = ISpellContainer.create(1, true, true);
-                spellContainer.save(itemStack);
+                spellContainer.getAllSpells();
             }
         }
     }
