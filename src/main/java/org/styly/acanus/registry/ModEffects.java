@@ -9,7 +9,10 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
+import net.minecraft.world.entity.player.Abilities;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.styly.acanus.Arcanus;
@@ -25,7 +28,7 @@ public class ModEffects {
     public static void register(IEventBus eventBus){
         MOB_EFFECTS.register(eventBus);
     }
-    public static final Holder<MobEffect> FLIGHT = MOB_EFFECTS.register("flight",()->new flight(MobEffectCategory.BENEFICIAL,4393481));
+    public static final Holder<MobEffect> FLIGHT = MOB_EFFECTS.register("flight",()->new flight(MobEffectCategory.BENEFICIAL,4393481).addAttributeModifier(NeoForgeMod.CREATIVE_FLIGHT.getDelegate(),NeoForgeMod.CREATIVE_FLIGHT.getKey().location(),1.0, AttributeModifier.Operation.ADD_VALUE));
     public static final Holder<MobEffect> FULL_MOON = MOB_EFFECTS.register("full_moon",()->new FullMoon(MobEffectCategory.BENEFICIAL,490).addAttributeModifier(AttributeRegistry.SPELL_POWER.getDelegate(),AttributeRegistry.SPELL_POWER.getId(),0.50, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.ATTACK_DAMAGE,Attributes.ATTACK_DAMAGE.getKey().location(),7.0, AttributeModifier.Operation.ADD_VALUE).addAttributeModifier(AttributeRegistry.SPELL_RESIST.getDelegate(),AttributeRegistry.SPELL_RESIST.getId(),0.5,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final Holder<MobEffect> MAGIC_BLOCKED = MOB_EFFECTS.register("magic_block",()->new MagicBlocked(MobEffectCategory.BENEFICIAL,4393481));
 }

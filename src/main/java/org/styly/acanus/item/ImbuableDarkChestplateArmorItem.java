@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.IPresetSpellContainer;
 import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
 import io.redspace.ironsspellbooks.item.armor.ExtendedArmorItem;
 import io.redspace.ironsspellbooks.registries.ArmorMaterialRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.Level;
 import org.styly.acanus.registry.ModEffects;
 
 public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem implements IPresetSpellContainer {
-    public ImbuableDarkChestplateArmorItem(ArmorMaterial material, ArmorItem.Type type, Item.Properties settings) {
+    public ImbuableDarkChestplateArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Item.Properties settings) {
         super(material, type, settings);
     }
 

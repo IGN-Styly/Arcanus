@@ -16,7 +16,7 @@ public class CreativeTabRegistry {
             // Set name of tab to display
             .title(Component.translatable("item_group." + MODID + ".items"))
             // Set icon of creative tab
-            .icon(() -> new ItemStack(ModItems.BaseArtifact.get()))
+            .icon(() -> new ItemStack(ModItems.Card.get()))
             // Add default items to tab
             .displayItems((params, output) -> {
                 output.accept(ModItems.Card.get());

@@ -104,11 +104,11 @@ public class ManaSmite extends AbstractSpell {
             //double distance = targetEntity.distanceToSqr(smiteLocation);
             if (targetEntity.isAlive() && targetEntity.isPickable() && Utils.hasLineOfSight(level, smiteLocation.add(0, 1, 0), targetEntity.getBoundingBox().getCenter(), true)) {
                 if (DamageSources.applyDamage(targetEntity, getDamage(spellLevel, entity), this.getDamageSource(entity))) {
-                    int i = EnchantmentHelper.Fire(entity);
+                    int i = 0;
                     if (i > 0) {
-                        targetEntity.setSecondsOnFire(i * 4);
+                        //targetEntity.setSecondsOnFire(i * 4);
                     }
-                    EnchantmentHelper.doPostDamageEffects(entity, targetEntity);
+                    //EnchantmentHelper.doPostDamageEffects(entity, targetEntity);
                 }
             }
         }
@@ -117,7 +117,7 @@ public class ManaSmite extends AbstractSpell {
 
     private float getDamage(int spellLevel, LivingEntity entity) {
         //Setting mob type to undead means the smite enchantment also adds to the spell's damage. Seems fitting.
-        return getSpellPower(spellLevel, entity) + Utils.getWeaponDamage(entity, MobType.UNDEAD);
+        return getSpellPower(spellLevel, entity) + Utils.getWeaponDamage(entity);
     }
     @Override
     public boolean canBeCraftedBy(Player player) {
@@ -126,7 +126,7 @@ public class ManaSmite extends AbstractSpell {
 
     private String getDamageText(int spellLevel, LivingEntity entity) {
         if (entity != null) {
-            float weaponDamage = Utils.getWeaponDamage(entity, MobType.UNDEAD);
+            float weaponDamage = Utils.getWeaponDamage(entity);
             String plus = "";
             if (weaponDamage > 0) {
                 plus = String.format(" (+%s)", Utils.stringTruncation(weaponDamage, 1));

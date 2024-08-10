@@ -14,8 +14,6 @@ authors = "${mod_authors}" #optional
 description = '''${mod_description}'''
 enumExtensions="META-INF/enumextensions.json"
 
-[[mixins]]
-config = "irons_spellbooks.mixins.json"
 [[accessTransformers]]
 ## The file is relative to the output directory of the resources, or the root path inside the jar when compiled
 ## The 'resources' directory represents the root output directory of the resources

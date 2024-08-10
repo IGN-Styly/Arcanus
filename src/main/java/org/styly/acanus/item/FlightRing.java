@@ -13,12 +13,12 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 public class FlightRing extends Item implements ICurioItem {
     public FlightRing() {
-        super(new Item.Properties().stacksTo(1).defaultDurability(0));
+        super(new Item.Properties().stacksTo(1).durability(0));
     }
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        slotContext.entity().addEffect(new MobEffectInstance(ModEffects.FLIGHT.get(),20)); //Adds Flight Effect
+        slotContext.entity().addEffect(new MobEffectInstance(ModEffects.FLIGHT,20)); //Adds Flight Effect
     }
 
 

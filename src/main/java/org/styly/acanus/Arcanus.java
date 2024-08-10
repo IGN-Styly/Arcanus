@@ -6,9 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.InterModEnqueueEvent;
 import org.jetbrains.annotations.NotNull;
-import org.styly.acanus.events.NightEvent;
 import org.styly.acanus.events.RegisterISSslot;
-import org.styly.acanus.item.FlightRing;
 import org.styly.acanus.registry.*;
 import org.styly.acanus.util.Curios;
 
@@ -21,7 +19,6 @@ public class Arcanus {
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
         CreativeTabRegistry.register(eventBus);
-        //MinecraftForge.EVENT_BUS.register(NightEvent.class); Retired
         eventBus.register(RegisterISSslot.class);
 
     }
