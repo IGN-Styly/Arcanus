@@ -1,24 +1,20 @@
 package org.styly.acanus;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import net.neoforged.bus.api.IEventBus;
 import org.jetbrains.annotations.NotNull;
 import org.styly.acanus.events.NightEvent;
 import org.styly.acanus.events.RegisterISSslot;
 import org.styly.acanus.item.FlightRing;
 import org.styly.acanus.registry.*;
 import org.styly.acanus.util.Curios;
-import top.theillusivec4.curios.api.CuriosApi;
+
 
 
 @Mod(Arcanus.MODID)
 public class Arcanus {
-    public Arcanus(){
-        final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public Arcanus(IEventBus eventBus){
         ModItems.register(eventBus);
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
