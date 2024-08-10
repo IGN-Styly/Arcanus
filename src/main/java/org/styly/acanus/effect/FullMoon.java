@@ -11,15 +11,15 @@ public class FullMoon extends MobEffect {
         super(mobEffectCategory, color);
     }
 
-    @Override
+
     public void removeAttributeModifiers(LivingEntity livingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers(livingEntity, pAttributeMap, pAmplifier);
+        super.removeAttributeModifiers( pAttributeMap);
 
     }
 
-    @Override
+
     public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
+        super.addAttributeModifiers( pAttributeMap, pAmplifier);
 
     }
 }

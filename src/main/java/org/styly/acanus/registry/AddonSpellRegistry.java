@@ -2,13 +2,16 @@ package org.styly.acanus.registry;
 
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.styly.acanus.Arcanus;
 import org.styly.acanus.spells.ManaCombustion;
 import org.styly.acanus.spells.ManaSmite;
 import org.styly.acanus.spells.TheFool;
+
+import java.util.function.Supplier;
 
 
 public class AddonSpellRegistry {
@@ -17,11 +20,11 @@ public class AddonSpellRegistry {
     public static void register(IEventBus eventBus) {
         SPELLS.register(eventBus);
     }
-    public static final RegistryObject<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
-    public static final RegistryObject<AbstractSpell> ManaSmite = SPELLS.register("mana_smite", ManaSmite::new);
-    public static final RegistryObject<AbstractSpell> ManaCombustion = SPELLS.register("mana_combustion", ManaCombustion::new);
+    public static final Supplier<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
+    public static final Supplier<AbstractSpell> ManaSmite = SPELLS.register("mana_smite", ManaSmite::new);
+    public static final Supplier<AbstractSpell> ManaCombustion = SPELLS.register("mana_combustion", ManaCombustion::new);
 
-    public static RegistryObject<AbstractSpell> registerSpell(AbstractSpell spell) {
+    public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);
     }
 }

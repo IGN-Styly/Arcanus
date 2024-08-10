@@ -1,20 +1,18 @@
 package org.styly.acanus.registry;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import org.styly.acanus.Arcanus;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static org.styly.acanus.Arcanus.MODID;
 
 public class CreativeTabRegistry {
     private static final DeferredRegister<CreativeModeTab> CreativeTabRegister= DeferredRegister.create(Registries.CREATIVE_MODE_TAB,MODID);
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CreativeTabRegister.register("items", () -> CreativeModeTab.builder()
+    public static final Holder<CreativeModeTab> ARCANUS_TAB = CreativeTabRegister.register("items", () -> CreativeModeTab.builder()
             // Set name of tab to display
             .title(Component.translatable("item_group." + MODID + ".items"))
             // Set icon of creative tab

@@ -3,6 +3,8 @@ package org.styly.acanus;
 import net.minecraft.resources.ResourceLocation;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.InterModEnqueueEvent;
 import org.jetbrains.annotations.NotNull;
 import org.styly.acanus.events.NightEvent;
 import org.styly.acanus.events.RegisterISSslot;
@@ -19,9 +21,8 @@ public class Arcanus {
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
         CreativeTabRegistry.register(eventBus);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         //MinecraftForge.EVENT_BUS.register(NightEvent.class); Retired
-        MinecraftForge.EVENT_BUS.register(RegisterISSslot.class);
+        eventBus.register(RegisterISSslot.class);
 
     }
 
@@ -35,7 +36,7 @@ public class Arcanus {
         Curios.registerCurioSlot(Curios.CHARM_SLOT, 1, false, null);
         Curios.registerCurioSlot(Curios.BRACELET, 2, false, null);
         Curios.registerCurioSlot(Curios.HEAD,1,false,null);
-        Curios.registerCurioSlot("card", 1, false, new ResourceLocation("curios:slot/card_slot"));
+        Curios.registerCurioSlot("card", 1, false, new ResourceLocation("curios","slot/card_slot"));
 
     }
 
