@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.InterModEnqueueEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import org.jetbrains.annotations.NotNull;
 import org.styly.acanus.events.RegisterISSslot;
 import org.styly.acanus.registry.*;
@@ -19,7 +20,7 @@ public class Arcanus {
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
         CreativeTabRegistry.register(eventBus);
-        eventBus.register(RegisterISSslot.class);
+        NeoForge.EVENT_BUS.addListener(RegisterISSslot::SpellSelectionEvent);
 
     }
 

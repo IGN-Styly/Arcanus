@@ -11,10 +11,10 @@ import org.styly.acanus.Arcanus;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 
-@EventBusSubscriber(modid = Arcanus.MODID)
+
 public class RegisterISSslot {
     @SubscribeEvent
-    public static void Register(SpellSelectionManager.SpellSelectionEvent event){
+    public static void SpellSelectionEvent(SpellSelectionManager.SpellSelectionEvent event){
         String equipmentSlot = Curios.RING_SLOT;
         ItemStack itemStack = CuriosApi.getCuriosHelper().findCurio(event.getEntity(), Curios.RING_SLOT, 0).map(SlotResult::stack).orElse(null);
         if (ISpellContainer.isSpellContainer(itemStack)) {
