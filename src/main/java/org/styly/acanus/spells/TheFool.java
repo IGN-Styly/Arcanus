@@ -45,7 +45,7 @@ public class TheFool extends AbstractSpell {
     public TheFool() {
         this.baseSpellPower = 1;
         this.castTime = 15;
-        this.baseManaCost = 250;
+        this.baseManaCost = 1500;
     }
     @Override
     public boolean canBeCraftedBy(Player player) {

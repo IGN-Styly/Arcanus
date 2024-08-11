@@ -46,16 +46,16 @@ public class ManaCombustion extends AbstractSpell {
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.ELDRITCH_RESOURCE)
-            .setMaxLevel(1)
-            .setCooldownSeconds(15)
+            .setMaxLevel(3)
+            .setCooldownSeconds(6)
             .build();
 
     public ManaCombustion() {
         this.manaCostPerLevel = 15;
         this.baseSpellPower = 50;
-        this.spellPowerPerLevel = 3;
+        this.spellPowerPerLevel = 20;
         this.castTime = 16;
-        this.baseManaCost = 300;
+        this.baseManaCost = 100;
     }
 
     @Override
