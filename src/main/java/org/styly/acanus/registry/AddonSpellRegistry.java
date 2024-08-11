@@ -20,9 +20,9 @@ public class AddonSpellRegistry {
     public static void register(IEventBus eventBus) {
         SPELLS.register(eventBus);
     }
-    //public static final Supplier<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
-    //public static final Supplier<AbstractSpell> ManaSmite = SPELLS.register("mana_smite", ManaSmite::new);
-    //public static final Supplier<AbstractSpell> ManaCombustion = SPELLS.register("mana_combustion", ManaCombustion::new);
+    public static final Supplier<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
+    public static final Supplier<AbstractSpell> ManaSmite = SPELLS.register("mana_smite", ManaSmite::new);
+    public static final Supplier<AbstractSpell> ManaCombustion = SPELLS.register("mana_combustion", ManaCombustion::new);
 
     public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);
