@@ -11,21 +11,6 @@ public class Curios {
     public static String CHARM_SLOT = "charm";
     public static String BRACELET = "bracelet";
     public static String HEAD = "head";
+    public static String CARD = "card";
 
-    public static void registerCurioSlot(final String identifier, final int slots, final boolean isHidden, @Nullable final ResourceLocation icon) {
-        final SlotTypeMessage.Builder message = new SlotTypeMessage.Builder(identifier);
-
-        message.size(slots);
-
-        if (isHidden) {
-            message.hide();
-        }
-
-        if (icon != null) {
-            message.icon(icon);
-        }
-
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> message.build());
-
-    }
 }
