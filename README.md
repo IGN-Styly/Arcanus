@@ -1,6 +1,6 @@
 ![Arcanus](https://cdn.modrinth.com/data/cached_images/498cbdd240c1e62dbd65927a68c23e14daba18b9.png)
 ### Arcanus
-A cool minecraft magic accessory mod!
+A cool minecraft magical accessory, lore and content mod!
 ## General
 If you love the mod and would like to help support its ongoing development consider Sponsoring me!
 
