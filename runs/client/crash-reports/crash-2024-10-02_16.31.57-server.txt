@@ -1,0 +1,101 @@
+---- Minecraft Crash Report ----
+// Quite honestly, I wouldn't worry myself about that.
+
+Time: 2024-10-02 16:31:57
+Description: Exception in server tick loop
+
+java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / arcanus:recollection]
+	at TRANSFORMER/neoforge@21.0.167/net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:103) ~[neoforge-21.0.167.jar%23178!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/neoforge@21.0.167/net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:117) ~[neoforge-21.0.167.jar%23178!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/arcanus@1.21.1-0.3.4/org.styly.arcanus.entities.RecollectionEntity.<init>(RecollectionEntity.java:27) ~[%23179!/:?] {re:classloading}
+	at TRANSFORMER/arcanus@1.21.1-0.3.4/org.styly.arcanus.spells.Recollection.onCast(Recollection.java:126) ~[%23179!/:?] {re:classloading}
+	at TRANSFORMER/irons_spellbooks@1.21-3.7.1/io.redspace.ironsspellbooks.api.spells.AbstractSpell.castSpell(AbstractSpell.java:307) ~[irons_spellbooks-1.21-3.7.1.jar%23183!/:1.21-3.7.1] {re:classloading}
+	at TRANSFORMER/irons_spellbooks@1.21-3.7.1/io.redspace.ironsspellbooks.capabilities.magic.MagicManager.lambda$tick$0(MagicManager.java:57) ~[irons_spellbooks-1.21-3.7.1.jar%23183!/:1.21-3.7.1] {re:classloading}
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {re:computing_frames,re:mixin}
+	at TRANSFORMER/irons_spellbooks@1.21-3.7.1/io.redspace.ironsspellbooks.capabilities.magic.MagicManager.tick(MagicManager.java:46) ~[irons_spellbooks-1.21-3.7.1.jar%23183!/:1.21-3.7.1] {re:classloading}
+	at TRANSFORMER/irons_spellbooks@1.21-3.7.1/io.redspace.ironsspellbooks.capabilities.magic.MagicEvents.onWorldTick(MagicEvents.java:30) ~[irons_spellbooks-1.21-3.7.1.jar%23183!/:1.21-3.7.1] {re:classloading}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:26) ~[bus-8.0.1.jar%23135!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:350) ~[bus-8.0.1.jar%23135!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:315) ~[bus-8.0.1.jar%23135!/:?] {}
+	at TRANSFORMER/neoforge@21.0.167/net.neoforged.neoforge.event.EventHooks.fireLevelTickPre(EventHooks.java:972) ~[neoforge-21.0.167.jar%23178!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1049) ~[neoforge-21.0.167.jar%23177!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:932) ~[neoforge-21.0.167.jar%23177!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:113) ~[neoforge-21.0.167.jar%23177!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:713) ~[neoforge-21.0.167.jar%23177!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.0.167.jar%23177!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21
+	Minecraft Version ID: 1.21
+	Operating System: Linux (amd64) version 6.10.10-arch1-1
+	Java Version: 21.0.2, GraalVM Community
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), GraalVM Community
+	Memory: 418309488 bytes (398 MiB) / 822083584 bytes (784 MiB) up to 12608077824 bytes (12024 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz
+	Identifier: Intel64 Family 6 Model 165 Stepping 5
+	Microarchitecture: Comet Lake
+	Frequency (GHz): 2.90
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: Navi 21 [Radeon RX 6800/6800 XT / 6900 XT]
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. [AMD/ATI] (0x1002)
+	Graphics card #0 VRAM (MiB): 16640.00
+	Graphics card #0 deviceId: 0x73bf
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 32237.14
+	Virtual memory used (MiB): 12522.09
+	Swap memory total (MiB): 8192.00
+	Swap memory used (MiB): 0.00
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 23760.56, total: 24045.15
+	Space in storage for workdir (MiB): available: 52458.41, total: 459287.56
+	JVM Flags: 4 total; -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/61, l='ServerLevel[New World]', x=-15.87, y=116.37, z=-57.35]]
+	Active Data Packs: vanilla, mod_data, mod/irons_spellbooks (incompatible), mod/mousetweaks (incompatible), mod/caelus (incompatible), mod/curios (incompatible), mod/arcanus (incompatible), mod/geckolib, mod/playeranimator, mod/neoforge, mod/jei (incompatible)
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/arcanus (incompatible), mod/caelus (incompatible), mod/curios (incompatible), mod/geckolib, mod/irons_spellbooks (incompatible), mod/jei (incompatible), mod/mousetweaks (incompatible), mod/neoforge, mod/playeranimator, mod_data
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 4994800980129403938
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'neoforge'; Server brand changed to 'neoforge'
+	Launched Version: 21.0.167
+	ModLauncher: 11.0.4+main.d2e20e43
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher services: 
+		sponge-mixin-0.14.0+mixin.0.8.6.jar mixin PLUGINSERVICE 
+		loader-4.0.23.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.23.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.23.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.4.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.4.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		irons_spellbooks-1.21-3.7.1.jar                   |Iron's Spells 'n Spellbooks   |irons_spellbooks              |1.21-3.7.1          |Manifest: NOSIGNATURE
+		neoforge-21.0.167.jar                             |Minecraft                     |minecraft                     |1.21                |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		mouse-tweaks-60089-5437296.jar                    |Mouse Tweaks                  |mousetweaks                   |2.26                |Manifest: NOSIGNATURE
+		caelus-neoforge-7.0.0+1.21.jar                    |Caelus API                    |caelus                        |7.0.0+1.21          |Manifest: NOSIGNATURE
+		adorned-1036809-5546365.jar                       |Adorned API                   |curios                        |9.0.5+1.21.0        |Manifest: NOSIGNATURE
+		main                                              |Arcanus                       |arcanus                       |1.21.1-0.3.4        |Manifest: NOSIGNATURE
+		geckolib-neoforge-1.21-4.5.8.jar                  |GeckoLib 4                    |geckolib                      |4.5.8               |Manifest: NOSIGNATURE
+		player-animation-lib-forge-2.0.0-alpha1+1.21.jar  |Player Animator               |playeranimator                |2.0.0-alpha1+1.21   |Manifest: NOSIGNATURE
+		neoforge-21.0.167.jar                             |NeoForge                      |neoforge                      |21.0.167            |Manifest: NOSIGNATURE
+		jei-1.21-neoforge-19.5.0.32.jar                   |Just Enough Items             |jei                           |19.5.0.32           |Manifest: NOSIGNATURE
+	Crash Report UUID: c112a017-afdf-41fa-bd7d-d2a95e200649
+	FML: 4.0.23
+	NeoForge: 21.0.167

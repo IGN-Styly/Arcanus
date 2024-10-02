@@ -1,0 +1,43 @@
+/summon cow
+/time set night
+/time set day
+/effect clear
+/summon minecraft:wither
+/effect give @s arcanus:magic_block
+/effect give @s arcanus:magic_block infinite
+/effect clear
+/tick freeze
+/effect give d29543b1-3ca1-4ff6-82fe-d7f172fa5ccf arcanus:magic_block infinite
+/effect give 8c7d2186-8c26-4ea3-ac6c-b55408feb910 arcanus:magic_block infinite
+/tick unfreeze
+/tick freeze
+/mana set 800
+/mana set @s 800
+/mana set @s 8000
+/mana set @s 1000
+/clearCooldowns
+/summon minecraft:witch
+/summon minecraft:wither
+/clear
+/effect give @s minecraft:instant_health infinite
+/effect clear
+/summon minecraft:wither
+/mana set @s 1000
+/time set day
+/cast Dev arcanus:mana_smite
+/cast @s arcanus:mana_smite
+/cast @s wololo
+/cast @s cloud_of_regeneration
+/summon cow
+/summon minecraft:warden
+/give @s arcanus:excalibur
+/give @s ar
+/give @s arcanus:excalibur
+/mana set @s 30000
+/give @s arcanus:excalibur
+/data get entity @s
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
