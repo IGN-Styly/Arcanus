@@ -18,7 +18,6 @@ import org.styly.arcanus.registry.*;
 public class Arcanus {
     public static final Logger LOGGER = LogUtils.getLogger();
     public Arcanus(IEventBus eventBus){
-        ArcanusComponents.register(eventBus);
         ModItems.register(eventBus);
         EntityRegistry.register(eventBus);
         AddonSpellRegistry.register(eventBus);

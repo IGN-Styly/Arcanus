@@ -1,15 +1,3 @@
-/summon cow
-/time set night
-/time set day
-/effect clear
-/summon minecraft:wither
-/effect give @s arcanus:magic_block
-/effect give @s arcanus:magic_block infinite
-/effect clear
-/tick freeze
-/effect give d29543b1-3ca1-4ff6-82fe-d7f172fa5ccf arcanus:magic_block infinite
-/effect give 8c7d2186-8c26-4ea3-ac6c-b55408feb910 arcanus:magic_block infinite
-/tick unfreeze
 /tick freeze
 /mana set 800
 /mana set @s 800
@@ -41,3 +29,22 @@
 /data get entity @s SelectedItem
 /give @s arcanus:excalibur
 /data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arc
+/give @s arcanus:excalibur
+/data get entity @s SelectedItem
+/give @s arcanus:excalibur
+/summon pig
+/give @s arcanus:mana_ring
+/data get entity @s SelectedItem
+/give @s arcanus:mana_ring
+/data get entity @s SelectedItem
+/summon pig
+/enchant @s minecraft:sharpness 5

@@ -31,13 +31,15 @@ public class CreativeTabRegistry {
                 output.accept(ModItems.NecklaceOfTheNecromancer.get());
 
                 output.accept(ModItems.eldritch_rune.get());
-                output.accept(ModItems.ARCANESILK.get());
+                output.accept(ModItems.ARCANE_SILK.get());
                 
                 output.accept(ModItems.NETHERITE_MAGE_HELMET.get());
                 output.accept(ModItems.NETHERITE_MAGE_CHESTPLATE.get());
                 output.accept(ModItems.NETHERITE_MAGE_LEGGINGS.get());
                 output.accept(ModItems.NETHERITE_MAGE_BOOTS.get());
                 output.accept(ModItems.RING_OF_FLIGHT.get());
+
+                output.accept(ModItems.EXCALIBUR);
             })
             .build()
     );

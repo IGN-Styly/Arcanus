@@ -1,8 +1,6 @@
 package org.styly.arcanus.spells;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
-import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
@@ -12,34 +10,25 @@ import io.redspace.ironsspellbooks.api.util.CameraShakeManager;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
-import io.redspace.ironsspellbooks.network.casting.OnCastStartedPacket;
-import io.redspace.ironsspellbooks.network.casting.UpdateCastingStatePacket;
 import io.redspace.ironsspellbooks.particle.ShockwaveParticleOptions;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import io.redspace.ironsspellbooks.util.Log;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
 import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.entities.RecollectionEntity;
-import org.styly.arcanus.registry.ArcanusComponents;
 
 import java.util.List;
 import java.util.Optional;
@@ -65,7 +54,7 @@ public class Recollection extends AbstractSpell {
         this.baseSpellPower = 50;
         this.spellPowerPerLevel = 3;
         this.castTime = 12;
-        this.baseManaCost = 300;
+        this.baseManaCost = 10000;
     }
 
 
@@ -137,7 +126,6 @@ public class Recollection extends AbstractSpell {
         MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.HOLY.get().getTargetingColor(), distance * 3, true), smiteLocation.x, smiteLocation.y, smiteLocation.z, 1, 0, 0, 0, 0, true);
         MagicManager.spawnParticles(level, ParticleTypes.ELECTRIC_SPARK, smiteLocation.x, smiteLocation.y, smiteLocation.z, 250, 0, 0, 0, 6, false);
         CameraShakeManager.addCameraShake(new CameraShakeData(42, smiteLocation, radius));
-
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 
@@ -168,56 +156,5 @@ public class Recollection extends AbstractSpell {
     @Override
     public AnimationHolder getCastFinishAnimation() {
         return AnimationHolder.pass();
-    }
-    @Override
-    public boolean attemptInitiateCast(ItemStack stack, int spellLevel, Level level, Player player, CastSource castSource, boolean triggerCooldown, String castingEquipmentSlot) {
-        if (Log.SPELL_DEBUG) {
-            IronsSpellbooks.LOGGER.debug("AbstractSpell.attemptInitiateCast isClient:{}, spell{}({})", level.isClientSide, this.getSpellId(), spellLevel);
-        }
-
-        if (level.isClientSide) {
-            return false;
-        }
-
-        var serverPlayer = (ServerPlayer) player;
-        var playerMagicData = MagicData.getPlayerMagicData(serverPlayer);
-        if(stack.has(ArcanusComponents.ItemMana)){
-            // Looks safe to me ;)
-            playerMagicData.setMana(playerMagicData.getMana()+stack.get(ArcanusComponents.ItemMana));
-        }
-
-
-        if (!playerMagicData.isCasting()) {
-            CastResult castResult = canBeCastedBy(spellLevel, castSource, playerMagicData, serverPlayer);
-
-            if (castResult.message != null) {
-                serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(castResult.message));
-            }
-            if (castResult.message==null && stack.has(ArcanusComponents.ItemMana)){
-
-            }
-
-            if (!castResult.isSuccess() || !checkPreCastConditions(level, spellLevel, serverPlayer, playerMagicData) || NeoForge.EVENT_BUS.post(new SpellPreCastEvent(player, this.getSpellId(), spellLevel, getSchoolType(), castSource)).isCanceled()) {
-                return false;
-            }
-
-            if (serverPlayer.isUsingItem()) {
-                serverPlayer.stopUsingItem();
-            }
-            int effectiveCastTime = getEffectiveCastTime(spellLevel, player);
-
-            playerMagicData.initiateCast(this, spellLevel, effectiveCastTime, castSource, castingEquipmentSlot);
-            playerMagicData.setPlayerCastingItem(stack);
-
-            onServerPreCast(player.level, spellLevel, player, playerMagicData);
-
-            PacketDistributor.sendToPlayer(serverPlayer, new UpdateCastingStatePacket(getSpellId(), spellLevel, effectiveCastTime, castSource, castingEquipmentSlot));
-            PacketDistributor.sendToPlayersTrackingEntityAndSelf(serverPlayer, new OnCastStartedPacket(serverPlayer.getUUID(), getSpellId(), spellLevel));
-
-            return true;
-        } else {
-            Utils.serverSideCancelCast(serverPlayer);
-            return false;
-        }
     }
 }

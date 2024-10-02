@@ -1,7 +1,9 @@
 package org.styly.arcanus.registry;
 
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.neoforged.bus.api.IEventBus;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
@@ -11,10 +13,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.curios.BasicAttributeCurios;
-import org.styly.arcanus.item.AttributeContainer;
-import org.styly.arcanus.item.DarkMageArmourItem;
-import org.styly.arcanus.item.Excalibur;
-import org.styly.arcanus.item.FlightRing;
+import org.styly.arcanus.item.*;
 import org.styly.arcanus.util.Curios;
 
 public class ModItems {
@@ -37,10 +36,11 @@ public class ModItems {
 
 
     //cool materials
-    public static final DeferredItem<Item> ARCANESILK = (DeferredItem<Item>) ITEMS.register("arcane_silk",()->new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
+    public static final DeferredItem<Item> ARCANE_SILK = (DeferredItem<Item>) ITEMS.register("arcane_silk",()->new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
 
-    //Cool ring
+    //Cool rings
     public static final DeferredHolder<Item, FlightRing> RING_OF_FLIGHT = ITEMS.register("flight_ring", FlightRing::new);
+    public static final DeferredHolder<Item, TempManaRing> RING_OF_MANA = ITEMS.register("mana_ring",()->new TempManaRing(new Item.Properties().stacksTo(1).fireResistant().durability(20)));
     // Lore Armor
     public static final DeferredItem<Item> NETHERITE_MAGE_HELMET = ITEMS.register("netherite_mage_helmet", () -> new DarkMageArmourItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment()));
     public static final DeferredItem<Item> NETHERITE_MAGE_CHESTPLATE = ITEMS.register("netherite_mage_chestplate", () -> new DarkMageArmourItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment()));
@@ -48,7 +48,7 @@ public class ModItems {
     public static final DeferredItem<Item> NETHERITE_MAGE_BOOTS = ITEMS.register("netherite_mage_boots", () -> new DarkMageArmourItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment()));
 
     // The Seven
-    public static final DeferredItem<Item> EXCALIBUR = ITEMS.register("excalibur",()->new Excalibur(Tiers.NETHERITE,new Item.Properties().component(ArcanusComponents.ItemMana.value(),1),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
+    public static final DeferredItem<Item> EXCALIBUR = ITEMS.register("excalibur",()->new Excalibur(Tiers.NETHERITE,new Item.Properties().fireResistant().rarity(Rarity.EPIC).setNoRepair().component(DataComponents.UNBREAKABLE,new Unbreakable(false)),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
