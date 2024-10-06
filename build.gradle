@@ -164,7 +164,27 @@ tasks.register('copyAnimations', Copy) {
     include 'casting_animations.json'
     into "src/main/resources/assets/${mod_id}/animations"
 }
+publishing {
+    
+  publications {
 
+        mavenJava(MavenPublication) {
+            artifactId project.archivesBaseName
+            artifact jar
+            artifact sourcesJar
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/IGN-Styly/Arcanus"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
 tasks.classes.dependsOn(tasks.copyAnimations)
 tasks.processResources.dependsOn(tasks.copyAnimations)
 tasks.sourcesJar.dependsOn(tasks.copyAnimations)
