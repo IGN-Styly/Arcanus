@@ -21,5 +21,6 @@
   "item.arcanus.flight_ring": "Ring Of Flight",
   "item.arcanus.arcane_silk": "Arcane Silk",
   "item.arcanus.excalibur.description": "The Mythical Sword of King Arthur that posses the magical ability to release a burst of magic, in one mighty Strike.",
-  "item.arcanus.excalibur": "Excalibur"
+  "item.arcanus.excalibur": "Excalibur",
+  "ui.arcanus.defense": "Absorbable Damaged: %s"
 }

@@ -25,7 +25,7 @@ public class Arcanus {
         CreativeTabRegistry.register(eventBus);
         NeoForge.EVENT_BUS.addListener(RegisterISSslot::SpellSelectionEvent);
         NeoForge.EVENT_BUS.addListener(CancelSpell::SpellPreCastEvent);
-
+        
 
     }
 
