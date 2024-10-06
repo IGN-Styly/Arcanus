@@ -39,7 +39,7 @@ public class DarkVeil extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.arcanus.defense", getDamage(spellLevel, caster)));
+        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+50));
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
