@@ -17,15 +17,12 @@ import org.styly.arcanus.registry.ModEffects;
 
 
 public class ServerPlayerEvents {
-    @SubscribeEvent
     public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
-        Arcanus.LOGGER.warn("EVENT ARCANUS");
         var livingEntity = event.getEntity();
         if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             var playerMagicData = MagicData.getPlayerMagicData(livingEntity);
             if (livingEntity.hasEffect(ModEffects.DarkVeil)) {
                 DarkVeilEffect.doEffect(livingEntity,event);
-                Arcanus.LOGGER.warn("Executed doEFFECT");
             }
         }
     }

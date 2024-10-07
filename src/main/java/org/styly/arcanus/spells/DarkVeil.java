@@ -39,17 +39,16 @@ public class DarkVeil extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+25));
+        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+25),Component.translatable("ui.arcanus.spell.time",(int)((3*60)+(getSpellPower(spellLevel,caster))*10)*20));
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
         //Setting mob type to undead means the smite enchantment also adds to the spell's damage. Seems fitting.
         return getSpellPower(spellLevel, entity);
     }
-
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData){
-        entity.forceAddEffect(new MobEffectInstance(ModEffects.DarkVeil.getDelegate(), (int) (baseManaCost+getSpellPower(spellLevel,entity))*10,spellLevel,false,false),entity);
+        entity.addEffect(new MobEffectInstance(ModEffects.DarkVeil, (int) ((3*60)+(getSpellPower(spellLevel,entity))*5)*20,spellLevel-1,false,false),entity);
     }
     @Override
     public CastType getCastType() {
