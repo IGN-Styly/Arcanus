@@ -7,6 +7,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import org.styly.arcanus.registry.ArcanusDataAttachments;
 import org.styly.arcanus.registry.ModEffects;
 
 public class DarkVeilEffect extends MagicMobEffect {
@@ -20,18 +21,19 @@ public class DarkVeilEffect extends MagicMobEffect {
     }
 
     public static void doEffect(LivingEntity livingEntity, LivingIncomingDamageEvent event) {
-        livingEntity.getEffect(this);
+        var DamageSave=livingEntity.getData(ArcanusDataAttachments.DAMAGE_ABSORB.get());
         if (event.getAmount() > DamageSave) {
             event.setAmount(event.getAmount() - DamageSave);
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
         } else if (DamageSave > event.getAmount()) {
-            DamageSave = DamageSave - event.getAmount();
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, DamageSave - event.getAmount());
             event.setCanceled(true);
         } else if (DamageSave == event.getAmount()) {
-            DamageSave = DamageSave - event.getAmount();
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,DamageSave - event.getAmount());
             event.setCanceled(true);
         }
         // Just in case **wink** ;)
-        if (DamageSave >= 0) {
+        if (DamageSave >= 0f) {
             livingEntity.removeEffect(ModEffects.DarkVeil);
         }
     }
@@ -39,7 +41,7 @@ public class DarkVeilEffect extends MagicMobEffect {
     @Override
     public void onEffectAdded(LivingEntity pLivingEntity, int pAmplifier) {
         super.onEffectAdded(pLivingEntity, pAmplifier);
-        DamageSave = pAmplifier * 25 + 50;
+        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB.get(),(float)(pAmplifier * 25 + 50));
         MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(DarkVeilEffectLong);
     }
 

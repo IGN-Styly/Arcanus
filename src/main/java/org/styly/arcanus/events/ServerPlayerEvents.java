@@ -22,7 +22,7 @@ public class ServerPlayerEvents {
             var playerMagicData = MagicData.getPlayerMagicData(livingEntity);
             if (playerMagicData.getSyncedData().hasEffect(DarkVeilEffect.DarkVeilEffectLong)) {
                 MobEffectInstance effect = livingEntity.getEffect(ModEffects.DarkVeil);
-                effect.
+
 
             }
         }
