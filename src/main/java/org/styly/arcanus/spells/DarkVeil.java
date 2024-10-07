@@ -39,7 +39,7 @@ public class DarkVeil extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+50));
+        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+25));
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
@@ -49,7 +49,7 @@ public class DarkVeil extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData){
-        entity.forceAddEffect(new MobEffectInstance(ModEffects.DarkVeil.getDelegate(), (int) (baseManaCost+getSpellPower(spellLevel,entity)),spellLevel,false,false),entity);
+        entity.forceAddEffect(new MobEffectInstance(ModEffects.DarkVeil.getDelegate(), (int) (baseManaCost+getSpellPower(spellLevel,entity))*10,spellLevel,false,false),entity);
     }
     @Override
     public CastType getCastType() {

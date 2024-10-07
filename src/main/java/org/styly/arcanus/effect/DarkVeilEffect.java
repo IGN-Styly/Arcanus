@@ -7,6 +7,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.registry.ArcanusDataAttachments;
 import org.styly.arcanus.registry.ModEffects;
 
@@ -21,7 +22,8 @@ public class DarkVeilEffect extends MagicMobEffect {
     }
 
     public static void doEffect(LivingEntity livingEntity, LivingIncomingDamageEvent event) {
-        var DamageSave=livingEntity.getData(ArcanusDataAttachments.DAMAGE_ABSORB.get());
+        float DamageSave=livingEntity.getData(ArcanusDataAttachments.DAMAGE_ABSORB);
+        Arcanus.LOGGER.warn(String.valueOf(DamageSave));
         if (event.getAmount() > DamageSave) {
             event.setAmount(event.getAmount() - DamageSave);
             livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
@@ -29,11 +31,11 @@ public class DarkVeilEffect extends MagicMobEffect {
             livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, DamageSave - event.getAmount());
             event.setCanceled(true);
         } else if (DamageSave == event.getAmount()) {
-            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,DamageSave - event.getAmount());
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
             event.setCanceled(true);
         }
         // Just in case **wink** ;)
-        if (DamageSave >= 0f) {
+        if (DamageSave <= 0f) {
             livingEntity.removeEffect(ModEffects.DarkVeil);
         }
     }
@@ -41,7 +43,7 @@ public class DarkVeilEffect extends MagicMobEffect {
     @Override
     public void onEffectAdded(LivingEntity pLivingEntity, int pAmplifier) {
         super.onEffectAdded(pLivingEntity, pAmplifier);
-        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB.get(),(float)(pAmplifier * 25 + 50));
+        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,(float)(pAmplifier * 25 + 25));
         MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(DarkVeilEffectLong);
     }
 

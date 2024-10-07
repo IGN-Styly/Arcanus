@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.styly.arcanus.events.CancelSpell;
 import org.styly.arcanus.events.RegisterISSslot;
+import org.styly.arcanus.events.ServerPlayerEvents;
 import org.styly.arcanus.registry.*;
 
 
@@ -25,6 +26,7 @@ public class Arcanus {
         CreativeTabRegistry.register(eventBus);
         NeoForge.EVENT_BUS.addListener(RegisterISSslot::SpellSelectionEvent);
         NeoForge.EVENT_BUS.addListener(CancelSpell::SpellPreCastEvent);
+        NeoForge.EVENT_BUS.addListener(ServerPlayerEvents::onLivingIncomingDamage);
         ArcanusDataAttachments.register(eventBus);
 
     }
