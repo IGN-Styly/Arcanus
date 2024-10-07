@@ -1,13 +1,13 @@
 package org.styly.arcanus.registry;
 
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.neoforged.bus.api.IEventBus;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
-import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;

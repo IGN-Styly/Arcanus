@@ -1,17 +1,10 @@
 package org.styly.arcanus.effect;
 
-import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
-import io.redspace.ironsspellbooks.network.casting.SyncEntityDataPacket;
-import io.redspace.ironsspellbooks.network.casting.SyncPlayerDataPacket;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.registry.ArcanusDataAttachments;
 import org.styly.arcanus.registry.ModEffects;

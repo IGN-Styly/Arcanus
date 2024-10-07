@@ -1,17 +1,12 @@
 package org.styly.arcanus.registry;
 
 import com.mojang.serialization.Codec;
-import io.redspace.ironsspellbooks.api.magic.MagicData;
-import net.minecraft.core.component.DataComponentType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.styly.arcanus.Arcanus;
-
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 
 public class ArcanusDataAttachments {
     // Create the DeferredRegister for attachment types

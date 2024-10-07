@@ -1,12 +1,7 @@
 package org.styly.arcanus.effect;
 
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
-import net.minecraft.core.Holder;
-import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
-import org.jetbrains.annotations.Nullable;
 
 public class ExtendedMobEffectInstance extends MagicMobEffect {
     public float DamageSave = 0;

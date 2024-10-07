@@ -1,8 +1,8 @@
 package org.styly.arcanus.registry;
 
 
-import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
-import io.redspace.ironsspellbooks.render.*;
+import io.redspace.ironsspellbooks.render.EnergySwirlLayer;
+import io.redspace.ironsspellbooks.render.SpellTargetingLayer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -22,7 +22,6 @@ import org.styly.arcanus.entities.RecollectionRenderer;
 import org.styly.arcanus.render.DarkVeilLayer;
 
 import static io.redspace.ironsspellbooks.render.EnergySwirlLayer.CHARGE_TEXTURE;
-import static io.redspace.ironsspellbooks.render.EnergySwirlLayer.EVASION_TEXTURE;
 
 @EventBusSubscriber(modid = Arcanus.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetup {

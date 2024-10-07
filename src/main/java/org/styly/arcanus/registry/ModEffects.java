@@ -7,13 +7,15 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.styly.arcanus.Arcanus;
-import org.styly.arcanus.effect.*;
+import org.styly.arcanus.effect.DarkVeilEffect;
+import org.styly.arcanus.effect.FullMoon;
+import org.styly.arcanus.effect.MagicBlocked;
+import org.styly.arcanus.effect.flight;
 
 public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, Arcanus.MODID);
