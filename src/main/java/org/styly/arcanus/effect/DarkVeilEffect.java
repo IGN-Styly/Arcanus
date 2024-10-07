@@ -47,7 +47,6 @@ public class DarkVeilEffect extends MagicMobEffect {
 
     @Override
     public void onEffectAdded(LivingEntity pLivingEntity, int pAmplifier) {
-        Arcanus.LOGGER.warn(String.valueOf(((pAmplifier+1) * 25 + 25)));
         pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,(float)((pAmplifier+1) * 25 + 25));
         MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(DarkVeilEffectLong);
         super.onEffectAdded(pLivingEntity, pAmplifier);

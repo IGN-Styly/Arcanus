@@ -18,13 +18,14 @@ import java.util.List;
 
 @AutoSpellConfig
 public class DarkVeil extends AbstractSpell {
-    public DarkVeil(){
+    public DarkVeil() {
         this.manaCostPerLevel = 125;
         this.baseSpellPower = 50;
         this.spellPowerPerLevel = 25;
         this.castTime = 16;
         this.baseManaCost = 350;
     }
+
     private final ResourceLocation spellId = new ResourceLocation(Arcanus.MODID, "dark_veil");
 
     @Override
@@ -39,26 +40,28 @@ public class DarkVeil extends AbstractSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.arcanus.defense", spellLevel*25+25),Component.translatable("ui.arcanus.spell.time",(int)((3*60)+(getSpellPower(spellLevel,caster))*10)*20));
+        return List.of(Component.translatable("ui.arcanus.defense", spellLevel * 25 + 25), Component.translatable("ui.arcanus.spell.time", (int) ((3 * 60) + (getSpellPower(spellLevel, caster) * spellLevel)) / 60));
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
         //Setting mob type to undead means the smite enchantment also adds to the spell's damage. Seems fitting.
         return getSpellPower(spellLevel, entity);
     }
+
     @Override
-    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData){
-        entity.addEffect(new MobEffectInstance(ModEffects.DarkVeil, (int) ((3*60)+(getSpellPower(spellLevel,entity))*5)*20,spellLevel-1,false,false),entity);
+    public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        entity.addEffect(new MobEffectInstance(ModEffects.DarkVeil, (int) ((3 * 60) + (getSpellPower(spellLevel, entity) * spellLevel)) * 20, spellLevel - 1, false, false), entity);
     }
+
     @Override
     public CastType getCastType() {
-        return CastType.LONG;
+        return CastType.INSTANT;
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.ELDRITCH_RESOURCE)
-            .setMaxLevel(3)
+            .setMaxLevel(10)
             .setCooldownSeconds(600)
             .build();
 

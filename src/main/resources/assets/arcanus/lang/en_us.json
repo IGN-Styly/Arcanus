@@ -23,5 +23,5 @@
   "item.arcanus.excalibur.description": "The Mythical Sword of King Arthur that posses the magical ability to release a burst of magic, in one mighty Strike.",
   "item.arcanus.excalibur": "Excalibur",
   "ui.arcanus.defense": "Absorbable Damaged: %s",
-  "ui.arcanus.spell.time": "Effect duration: %ss"
+  "ui.arcanus.spell.time": "Effect duration: %sm"
 }
