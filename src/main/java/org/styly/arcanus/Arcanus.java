@@ -20,6 +20,8 @@ public class Arcanus {
     public Arcanus(IEventBus eventBus){
         ModItems.register(eventBus);
         EntityRegistry.register(eventBus);
+        ArcanusBlockEntityRegistry.register(eventBus);
+        ArcanusBlockRegistry.register(eventBus);
         AddonSpellRegistry.register(eventBus);
         ModEffects.register(eventBus);
         CreativeTabRegistry.register(eventBus);

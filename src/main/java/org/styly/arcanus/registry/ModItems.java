@@ -1,5 +1,6 @@
 package org.styly.arcanus.registry;
 
+import com.jcraft.jorbis.Block;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
@@ -34,6 +35,8 @@ public class ModItems {
     public static final DeferredItem<Item> PendantOfPyromania = ITEMS.register("pyromania_pendent",()-> new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant()).withAttributes(Curios.NECKLACE_SLOT, new AttributeContainer(AttributeRegistry.FIRE_SPELL_POWER,0.15, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)));
     public static final DeferredItem<Item> WreathOfWinter = ITEMS.register("wreath_of_winter",()-> new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant()).withAttributes(Curios.NECKLACE_SLOT,new AttributeContainer(AttributeRegistry.ICE_SPELL_POWER,0.15,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)));
 
+    //ritual
+    public static final DeferredItem<BlockItem> RITUAL_TABLE_ITEM=ITEMS.registerSimpleBlockItem(ArcanusBlockRegistry.RITUAL_TABLE_BLOCK);
 
     //cool materials
     public static final DeferredItem<Item> ARCANE_SILK = (DeferredItem<Item>) ITEMS.register("arcane_silk",()->new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
