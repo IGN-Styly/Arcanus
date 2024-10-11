@@ -57,6 +57,9 @@ repositories {
         url "https://code.redspace.io/releases"
     }
     maven {
+        url "https://code.redspace.io/snapshots"
+    }
+    maven {
         url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
         content {
             includeGroup("software.bernie.geckolib")
@@ -95,7 +98,7 @@ dependencies {
     //implementation "curse.maven:tetra-${tetra_version}"
     //implementation "se.mickelus.mutil:mutil:${mutil_version}"
 
-    implementation "io.redspace:irons_spellbooks:1.21-3.7.1"
+    implementation "io.redspace:irons_spellbooks:${irons_spells_version}"
     implementation "com.google.code.gson:gson:${gson_version}"
 
     compileOnly "mezz.jei:jei-${jei_mc_version}-common-api:${jei_version}"

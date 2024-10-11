@@ -3,12 +3,10 @@ package org.styly.arcanus.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,12 +30,10 @@ public class RitualBlockEntity extends BlockEntity {
     public void setHeldItem(ItemStack newItem) {
         heldItem = newItem;
         setChanged();
-
     }
 
     public void drops() {
         SimpleContainer simpleContainer = new SimpleContainer(heldItem);
-
         Containers.dropContents(this.level, this.worldPosition, simpleContainer);
     }
 
@@ -49,60 +45,32 @@ public class RitualBlockEntity extends BlockEntity {
 
     @Override
     protected void saveAdditional(@Nonnull CompoundTag tag, HolderLookup.Provider registryAccess) {
-        //irons_spellbooks.LOGGER.debug("saveAdditional tag:{}", tag);
-        //tag.put("inventory", itemHandler.serializeNBT());
         writeNBT(tag, registryAccess);
     }
 
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
-        CompoundTag tag = new CompoundTag();
-        //tag.put("inventory", itemHandler.serializeNBT());
-        writeNBT(tag, pRegistries);
-        //irons_spellbooks.LOGGER.debug("getUpdateTag tag:{}", tag);
-        return tag;
-    }
-
-    @Override
-    public boolean triggerEvent(int pId, int pType) {
-        return super.triggerEvent(pId, pType);
+    public void setChanged() {
+        super.setChanged();
+        if (level != null) {
+            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+        }
     }
 
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        var packet = ClientboundBlockEntityDataPacket.create(this);
-        //irons_spellbooks.LOGGER.debug("getUpdatePacket: packet.getTag:{}", packet.getTag());
-        return packet;
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider pRegistries) {
-        //irons_spellbooks.LOGGER.debug("onDataPacket: pkt.getTag:{}", pkt.getTag());
-        handleUpdateTag(pkt.getTag(), pRegistries);
-        level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return saveWithoutMetadata(pRegistries);
     }
-
-    @Override
-    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider pRegistries) {
-        //irons_spellbooks.LOGGER.debug("handleUpdateTag: tag:{}", tag);
-        if (tag != null) {
-            loadAdditional(tag, pRegistries);
-        }
-    }
-
-    //    @Nonnull
-//    @Override
-//    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-//        if (cap == ForgeCapabilities.ITEM_HANDLER) {
-//            return lazyItemHandler.cast();
-//        }
-//
-//        return super.getCapability(cap, side);
-//    }
 
     private CompoundTag writeNBT(CompoundTag nbt, HolderLookup.Provider pRegistries) {
         if (!heldItem.isEmpty()) {
             nbt.put(NBT_HELD_ITEM, heldItem.save(pRegistries));
+        } else {
+            nbt.put(NBT_HELD_ITEM, new CompoundTag());
         }
         return nbt;
     }
