@@ -61,6 +61,11 @@ public class RitualBlock extends BaseEntityBlock {
                     //Let clients know to update rendered item
                     pLevel.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
                 } else {
+                    if(ritualTile.getHeldItem()!=ItemStack.EMPTY){
+                        dropItem(ritualTile.getHeldItem(),player);
+                        ritualTile.setHeldItem(ItemStack.EMPTY);
+                    }
+                    
                 }
                 //handItem.setCount(1);
                 //player.setItemInHand(hand,currentPedestalItem);
