@@ -51,7 +51,7 @@ public class ModItems {
 
     //Cool rings
     public static final DeferredHolder<Item, FlightRing> RING_OF_FLIGHT = ITEMS.register("flight_ring", FlightRing::new);
-    public static final DeferredHolder<Item, TempManaRing> RING_OF_MANA = ITEMS.register("mana_ring",()->new TempManaRing(new Item.Properties().stacksTo(1).fireResistant().durability(20)));
+    public static final DeferredItem<Item> RING_OF_MANA = ITEMS.register("mana_ring",()->new TempManaRing(new Item.Properties().stacksTo(1).fireResistant().durability(4)).withAttributes(Curios.RING_SLOT,new AttributeContainer(AttributeRegistry.MAX_MANA,10000,AttributeModifier.Operation.ADD_VALUE)));
     // Lore Armor
     public static final DeferredItem<Item> NETHERITE_MAGE_HELMET = ITEMS.register("netherite_mage_helmet", () -> new DarkMageArmourItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment().fireResistant()));
     public static final DeferredItem<Item> NETHERITE_MAGE_CHESTPLATE = ITEMS.register("netherite_mage_chestplate", () -> new DarkMageArmourItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment().fireResistant()));
@@ -59,7 +59,7 @@ public class ModItems {
     public static final DeferredItem<Item> NETHERITE_MAGE_BOOTS = ITEMS.register("netherite_mage_boots", () -> new DarkMageArmourItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment().fireResistant()));
 
     // The Seven
-    public static final DeferredHolder<Item,Item> EXCALIBUR = ITEMS.register("excalibur",()->new MagicSwordItem(ArcanusWeaponTiers.Legendary, ItemPropertiesHelper.equipment().fireResistant().rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ArcanusWeaponTiers.Legendary)).rarity(Rarity.EPIC),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
+    public static final DeferredHolder<Item,Item> EXCALIBUR = ITEMS.register("excalibur",()->new MagicSwordItem(ArcanusWeaponTiers.Legendary, ItemPropertiesHelper.equipment().fireResistant().durability(0).rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ArcanusWeaponTiers.Legendary)).rarity(Rarity.EPIC),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
