@@ -1,12 +1,17 @@
 package org.styly.arcanus.registry;
 
 import com.jcraft.jorbis.Block;
+import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
+import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Unbreakable;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -16,6 +21,9 @@ import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.curios.BasicAttributeCurios;
 import org.styly.arcanus.item.*;
 import org.styly.arcanus.util.Curios;
+
+import java.util.ArrayList;
+import java.util.function.Supplier;
 
 public class ModItems {
 
@@ -45,13 +53,13 @@ public class ModItems {
     public static final DeferredHolder<Item, FlightRing> RING_OF_FLIGHT = ITEMS.register("flight_ring", FlightRing::new);
     public static final DeferredHolder<Item, TempManaRing> RING_OF_MANA = ITEMS.register("mana_ring",()->new TempManaRing(new Item.Properties().stacksTo(1).fireResistant().durability(20)));
     // Lore Armor
-    public static final DeferredItem<Item> NETHERITE_MAGE_HELMET = ITEMS.register("netherite_mage_helmet", () -> new DarkMageArmourItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment()));
-    public static final DeferredItem<Item> NETHERITE_MAGE_CHESTPLATE = ITEMS.register("netherite_mage_chestplate", () -> new DarkMageArmourItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment()));
-    public static final DeferredItem<Item> NETHERITE_MAGE_LEGGINGS = ITEMS.register("netherite_mage_leggings", () -> new DarkMageArmourItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment()));
-    public static final DeferredItem<Item> NETHERITE_MAGE_BOOTS = ITEMS.register("netherite_mage_boots", () -> new DarkMageArmourItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment()));
+    public static final DeferredItem<Item> NETHERITE_MAGE_HELMET = ITEMS.register("netherite_mage_helmet", () -> new DarkMageArmourItem(ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment().fireResistant()));
+    public static final DeferredItem<Item> NETHERITE_MAGE_CHESTPLATE = ITEMS.register("netherite_mage_chestplate", () -> new DarkMageArmourItem(ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment().fireResistant()));
+    public static final DeferredItem<Item> NETHERITE_MAGE_LEGGINGS = ITEMS.register("netherite_mage_leggings", () -> new DarkMageArmourItem(ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment().fireResistant()));
+    public static final DeferredItem<Item> NETHERITE_MAGE_BOOTS = ITEMS.register("netherite_mage_boots", () -> new DarkMageArmourItem(ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment().fireResistant()));
 
     // The Seven
-    public static final DeferredItem<Item> EXCALIBUR = ITEMS.register("excalibur",()->new Excalibur(Tiers.NETHERITE,new Item.Properties().fireResistant().rarity(Rarity.EPIC).setNoRepair().component(DataComponents.UNBREAKABLE,new Unbreakable(false)),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
+    public static final DeferredHolder<Item,Item> EXCALIBUR = ITEMS.register("excalibur",()->new MagicSwordItem(ArcanusWeaponTiers.Legendary, ItemPropertiesHelper.equipment().fireResistant().rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ArcanusWeaponTiers.Legendary)).rarity(Rarity.EPIC),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

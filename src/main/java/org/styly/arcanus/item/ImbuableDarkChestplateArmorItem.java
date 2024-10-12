@@ -3,6 +3,7 @@ package org.styly.arcanus.item;
 import io.redspace.ironsspellbooks.api.spells.IPresetSpellContainer;
 import io.redspace.ironsspellbooks.api.spells.ISpellContainer;
 import io.redspace.ironsspellbooks.item.armor.ExtendedArmorItem;
+import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -15,8 +16,8 @@ import net.minecraft.world.level.Level;
 import org.styly.arcanus.registry.ModEffects;
 
 public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem implements IPresetSpellContainer {
-    public ImbuableDarkChestplateArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Item.Properties settings) {
-        super(material, type, settings);
+    public ImbuableDarkChestplateArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Item.Properties settings, AttributeContainer... attributes) {
+        super(material, type, settings,attributes);
     }
 
     private boolean hasFullSuitOfArmorOn(Player player) {

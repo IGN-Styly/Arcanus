@@ -39,7 +39,7 @@ public class CreativeTabRegistry {
                 output.accept(ModItems.NETHERITE_MAGE_BOOTS.get());
                 output.accept(ModItems.RING_OF_FLIGHT.get());
 
-                output.accept(ModItems.EXCALIBUR);
+                output.accept(ModItems.EXCALIBUR.get());
             })
             .build()
     );
