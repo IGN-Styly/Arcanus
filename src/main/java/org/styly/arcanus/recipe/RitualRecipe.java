@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.styly.arcanus.registry.ArcanusSerializers;
 
 import java.util.List;
 
@@ -29,6 +30,11 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     @Override
     public ItemStack getResultItem(HolderLookup.Provider registries) {
         return this.result;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return ArcanusSerializers.RITUAL.get();
     }
 
     @Override

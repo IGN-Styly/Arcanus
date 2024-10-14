@@ -15,10 +15,10 @@ public class ArcanusSerializers {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS =
             DeferredRegister.create(Registries.RECIPE_SERIALIZER, Arcanus.MODID);
 
-    public static final Supplier<RecipeSerializer<RitualRecipe>> RIGHT_CLICK_BLOCK =
+    public static final Supplier<RecipeSerializer<RitualRecipe>> RITUAL =
             RECIPE_SERIALIZERS.register("ritual", RitualRecipeSerializer::new);
 
-    public void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus){
         RECIPE_SERIALIZERS.register(eventBus);
     }
 }

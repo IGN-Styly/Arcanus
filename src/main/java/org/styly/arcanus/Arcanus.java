@@ -29,6 +29,7 @@ public class Arcanus {
         NeoForge.EVENT_BUS.addListener(CancelSpell::SpellPreCastEvent);
         NeoForge.EVENT_BUS.addListener(ServerPlayerEvents::onLivingIncomingDamage);
         ArcanusDataAttachments.register(eventBus);
+        ArcanusSerializers.register(eventBus);
 
     }
 
