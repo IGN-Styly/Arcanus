@@ -8,11 +8,13 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
+import java.util.List;
+
 public class RitualRecipe implements Recipe<RitualRecipeInput> {
-    private final ItemStack[] inputItems;
+    private final List<ItemStack> inputItems;
     private final ItemStack result;
 
-    public RitualRecipe(ItemStack[] inputItems,ItemStack result){
+    public RitualRecipe(List<ItemStack> inputItems,ItemStack result){
         this.inputItems=inputItems;
         this.result=result;
     }
@@ -23,5 +25,19 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     @Override
     public boolean matches(RitualRecipeInput input, Level level) {
         return  input.matches(inputItems);
+    }
+    @Override
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
+        return this.result;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return ArcanusRecipes.RITUAL.get();
+    }
+
+    @Override
+    public ItemStack assemble(RitualRecipeInput input, HolderLookup.Provider registries) {
+        return this.result.copy();
     }
 }
