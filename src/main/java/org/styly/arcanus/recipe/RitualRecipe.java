@@ -46,4 +46,12 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     public ItemStack assemble(RitualRecipeInput input, HolderLookup.Provider registries) {
         return this.result.copy();
     }
+
+    public List<ItemStack> getInputItems() {
+        return this.inputItems;
+    }
+
+    public ItemStack getResult() {
+        return this.result;
+    }
 }
