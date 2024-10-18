@@ -68,7 +68,7 @@ public class RitualBlock extends BaseEntityBlock {
                         pLevel.sendBlockUpdated(pos,state,state,Block.UPDATE_CLIENTS);
                     }
                     BlockPos b0 = new BlockPos(pos.getX(),pos.getY(),pos.getZ()); //center aka result!
-                    //this is faster I think?!
+                    //this is faster I think?! (prob not)
                     BlockPos b1 = new BlockPos(pos.getX()-4,pos.getY(),pos.getZ()-4); //t2
                     BlockPos b2 = new BlockPos(pos.getX(),pos.getY(),pos.getZ()-5); //t2
                     BlockPos b3 = new BlockPos(pos.getX()+4,pos.getY(),pos.getZ()-4); //t2
