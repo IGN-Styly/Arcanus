@@ -1,5 +1,6 @@
 package org.styly.arcanus.block;
 
+import io.redspace.ironsspellbooks.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -23,6 +24,7 @@ public class RitualBlockEntity extends BlockEntity {
     public RitualBlockEntity(BlockPos pos, BlockState state) {
         super(RITUAL_TABLE.get(), pos, state);
     }
+
     public ItemStack getHeldItem() {
         return heldItem;
     }
