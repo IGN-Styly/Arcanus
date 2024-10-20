@@ -1,0 +1,77 @@
+{
+  "type": "arcanus:ritual",
+  "ingredients": [
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  }
+}

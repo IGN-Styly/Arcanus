@@ -109,7 +109,7 @@ dependencies {
     implementation "curse.maven:adorned-1036809:5546365"
     // APOTHEOSIS
     compileOnly "curse.maven:apotheosis-${apotheosis_version}"
-    localRuntime "curse.maven:mouse-tweaks-60089:5437296"
+    //localRuntime "curse.maven:mouse-tweaks-60089:5437296"
 }
 tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [

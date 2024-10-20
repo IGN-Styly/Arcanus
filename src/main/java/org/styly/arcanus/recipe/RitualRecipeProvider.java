@@ -23,6 +23,6 @@ public class RitualRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput output) {
-        new RitualRecipeBuilder(Items.NETHERITE_INGOT.getDefaultInstance(), Arrays.asList(ModItems.AIR.toStack(), Items.DIAMOND.getDefaultInstance(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(),ModItems.AIR.toStack())).save(output);
+        //new RitualRecipeBuilder(Items.NETHERITE_INGOT.getDefaultInstance(), Arrays.asList(ModItems.AIR.toStack(), Items.DIAMOND.getDefaultInstance(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(), ModItems.AIR.toStack(),ModItems.AIR.toStack())).save(output,new ResourceLocation(Arcanus.MODID,"test_recipe2"));
     }
 }
