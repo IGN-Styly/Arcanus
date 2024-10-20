@@ -10,6 +10,10 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingInput;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -23,12 +27,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.styly.arcanus.Arcanus;
+import org.styly.arcanus.recipe.RitualRecipe;
 import org.styly.arcanus.recipe.RitualRecipeInput;
 import org.styly.arcanus.registry.ArcanusBlockEntityRegistry;
+import org.styly.arcanus.registry.ArcanusRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class RitualBlock extends BaseEntityBlock {
 
@@ -109,19 +116,13 @@ public class RitualBlock extends BaseEntityBlock {
                     int level = getLevel(pLevel,pos);
                     if (level>0){
                         player.sendSystemMessage(Component.literal("Level "+level));
-                        ArrayList<ItemStack> inputs = new ArrayList<ItemStack>(17); // I think it makes it faster
+                        ArrayList<ItemStack> inputs = new ArrayList<ItemStack>(); // I think it makes it faster
+                        for(int i =0;i<=16;i++){
+                            //populate Arraylist cause java
+                           inputs.add(ItemStack.EMPTY);
+                        }
+                        player.sendSystemMessage(Component.literal("Size: "+inputs.size()));;
                         if(level==1){
-                            //set t2 slots to empty
-                            inputs.set(1,ItemStack.EMPTY);
-                            inputs.set(2,ItemStack.EMPTY);
-                            inputs.set(3,ItemStack.EMPTY);
-
-                            inputs.set(8,ItemStack.EMPTY);
-                            inputs.set(9,ItemStack.EMPTY);
-
-                            inputs.set(14,ItemStack.EMPTY);
-                            inputs.set(15,ItemStack.EMPTY);
-                            inputs.set(16,ItemStack.EMPTY);
                             //set inputs according to table
                             inputs.set(4,getTileItem(pLevel,b4));
                             inputs.set(5,getTileItem(pLevel,b5));
@@ -155,7 +156,21 @@ public class RitualBlock extends BaseEntityBlock {
                             inputs.set(12,getTileItem(pLevel,b12));
                             inputs.set(13,getTileItem(pLevel,b13));
                         }
-                        RitualRecipeInput input = new RitualRecipeInput(inputs);
+                        RitualRecipeInput recipeInput = new RitualRecipeInput(inputs);
+                        Arcanus.LOGGER.warn(String.valueOf(recipeInput));
+                        RecipeManager recipes = pLevel.getRecipeManager();
+                        Optional<RecipeHolder<RitualRecipe>> optional = recipes.getRecipeFor(
+                                // The recipe type.
+                                ArcanusRecipes.RITUAL.get(),
+                                recipeInput,
+                                pLevel
+                        );
+                        ItemStack result = optional
+                                .map(RecipeHolder::value)
+                                .map(e -> e.assemble(recipeInput, pLevel.registryAccess()))
+                                .orElse(ItemStack.EMPTY);
+
+                        dropItem(result,player);
                     }
 
 
@@ -224,7 +239,7 @@ public class RitualBlock extends BaseEntityBlock {
     }
 
     public static ItemStack getTileItem(Level pLevel,BlockPos pos){
-        return ((RitualBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pos))).getHeldItem();
+        return ((PedestalTile) Objects.requireNonNull(pLevel.getBlockEntity(pos))).getHeldItem();
     };
 
     private void dropItem(ItemStack itemstack, Player owner) {

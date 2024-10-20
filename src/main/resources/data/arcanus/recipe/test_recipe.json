@@ -1,6 +1,9 @@
 {
   "type": "arcanus:ritual",
   "ingredients": [
+    {},
+    {},
+    {},
     {
       "id": "minecraft:iron_ingot"
     }
