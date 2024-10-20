@@ -1,11 +1,42 @@
 {
   "type": "arcanus:ritual",
   "ingredients": [
-    {},
-    {},
-    {},
     {
-      "id": "minecraft:iron_ingot"
+      "id": "arcanus:air"
+    },
+    {
+      "id": "minecraft:iron_ingot",
+      "count": 1
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
+    },{
+      "id": "arcanus:air"
     }
   ],
 

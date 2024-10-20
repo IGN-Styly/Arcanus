@@ -61,6 +61,9 @@ public class ModItems {
     // The Seven
     public static final DeferredHolder<Item,Item> EXCALIBUR = ITEMS.register("excalibur",()->new MagicSwordItem(ArcanusWeaponTiers.Legendary, ItemPropertiesHelper.equipment().fireResistant().durability(0).rarity(Rarity.EPIC).attributes(ExtendedSwordItem.createAttributes(ArcanusWeaponTiers.Legendary)).rarity(Rarity.EPIC),SpellDataRegistryHolder.of(new SpellDataRegistryHolder(AddonSpellRegistry.Recollection, 1))));
 
+    //replacement for air because mojang dosen't know shit.
+    public static final DeferredItem<Item> AIR = ITEMS.register("air",()->new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

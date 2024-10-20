@@ -9,6 +9,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class RitualRecipeSerializer implements RecipeSerializer<RitualRecipe> {
             );
 
     public static final MapCodec<RitualRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-            ItemStack.CODEC.listOf().fieldOf("ingredients").forGetter(RitualRecipe::getInputItems),
+            ItemStack.CODEC.listOf(1,17).fieldOf("ingredients").forGetter(RitualRecipe::getInputItems),
             ItemStack.CODEC.fieldOf("result").forGetter(RitualRecipe::getResult)
     ).apply(inst, RitualRecipe::new));
     public static final StreamCodec<RegistryFriendlyByteBuf, RitualRecipe> STREAM_CODEC =
@@ -51,7 +52,7 @@ public class RitualRecipeSerializer implements RecipeSerializer<RitualRecipe> {
 
     // Return our map codec.
     @Override
-    public MapCodec<RitualRecipe> codec() {
+    public @NotNull MapCodec<RitualRecipe> codec() {
         return CODEC;
     }
 

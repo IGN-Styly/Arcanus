@@ -10,6 +10,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -31,6 +32,7 @@ import org.styly.arcanus.recipe.RitualRecipe;
 import org.styly.arcanus.recipe.RitualRecipeInput;
 import org.styly.arcanus.registry.ArcanusBlockEntityRegistry;
 import org.styly.arcanus.registry.ArcanusRecipes;
+import org.styly.arcanus.registry.ModItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,13 +117,12 @@ public class RitualBlock extends BaseEntityBlock {
                     //level check
                     int level = getLevel(pLevel,pos);
                     if (level>0){
-                        player.sendSystemMessage(Component.literal("Level "+level));
                         ArrayList<ItemStack> inputs = new ArrayList<ItemStack>(); // I think it makes it faster
                         for(int i =0;i<=16;i++){
                             //populate Arraylist cause java
-                           inputs.add(ItemStack.EMPTY);
+                           inputs.add(new ItemStack(ModItems.AIR.get()));
                         }
-                        player.sendSystemMessage(Component.literal("Size: "+inputs.size()));;
+
                         if(level==1){
                             //set inputs according to table
                             inputs.set(4,getTileItem(pLevel,b4));
@@ -156,8 +157,12 @@ public class RitualBlock extends BaseEntityBlock {
                             inputs.set(12,getTileItem(pLevel,b12));
                             inputs.set(13,getTileItem(pLevel,b13));
                         }
+                        for(int i =0;i<inputs.size();i++){
+                            if(inputs.get(i).is(Items.AIR)){
+                                inputs.set(i,new ItemStack(ModItems.AIR.get()));
+                            }
+                        }
                         RitualRecipeInput recipeInput = new RitualRecipeInput(inputs);
-                        Arcanus.LOGGER.warn(String.valueOf(recipeInput));
                         RecipeManager recipes = pLevel.getRecipeManager();
                         Optional<RecipeHolder<RitualRecipe>> optional = recipes.getRecipeFor(
                                 // The recipe type.
@@ -169,8 +174,11 @@ public class RitualBlock extends BaseEntityBlock {
                                 .map(RecipeHolder::value)
                                 .map(e -> e.assemble(recipeInput, pLevel.registryAccess()))
                                 .orElse(ItemStack.EMPTY);
+                        Arcanus.LOGGER.warn(String.valueOf(result));
 
-                        dropItem(result,player);
+                        ritualTile.setHeldItem(result);
+                        clearPedestals(pLevel,pos);
+
                     }
 
 
@@ -180,7 +188,54 @@ public class RitualBlock extends BaseEntityBlock {
 
         return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
     }
+    public static void clearPedestals(Level pLevel, BlockPos pos){
+        int level = getLevel(pLevel,pos);
+        ArrayList<BlockPos> poss= new ArrayList<>();
+        if(level==1){
+            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
 
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1));
+
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1));
+
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
+        } else if (level==2){
+            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1));
+
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1));
+
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
+
+            poss.add(new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() - 4)); //t2
+            poss.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 5)); //t2
+            poss.add(new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() - 4)); //t2
+
+            poss.add(new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ())); //t2
+            poss.add(new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ())); //t2
+
+            poss.add( new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
+            poss.add( new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
+            poss.add( new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
+
+
+
+        }
+        for (BlockPos blockPos : poss) {
+            Objects.requireNonNull((PedestalTile) pLevel.getBlockEntity(blockPos)).setHeldItem(ItemStack.EMPTY);
+        }
+    }
     public static boolean IsValid(Level pLevel, @NotNull BlockPos pos) {
         BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
 

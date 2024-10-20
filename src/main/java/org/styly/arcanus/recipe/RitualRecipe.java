@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.registry.ArcanusRecipes;
 import org.styly.arcanus.registry.ArcanusSerializers;
 
@@ -19,10 +20,6 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     public RitualRecipe(List<ItemStack> inputItems,ItemStack result){
         this.inputItems=inputItems;
         this.result=result;
-    }
-    @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return width * height >= 16;
     }
     @Override
     public boolean matches(RitualRecipeInput input, Level level) {
@@ -46,6 +43,11 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     @Override
     public ItemStack assemble(RitualRecipeInput input, HolderLookup.Provider registries) {
         return this.result.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return false;
     }
 
     public List<ItemStack> getInputItems() {
