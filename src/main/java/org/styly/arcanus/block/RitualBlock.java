@@ -72,29 +72,6 @@ public class RitualBlock extends BaseEntityBlock {
                         pLevel.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
                     }
                     BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
-                    //this is faster I think?! (prob not)
-                    BlockPos b1 = new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() - 4); //t2
-                    BlockPos b2 = new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 5); //t2
-                    BlockPos b3 = new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() - 4); //t2
-
-                    BlockPos b4 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3);
-                    BlockPos b5 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3);
-
-                    BlockPos b6 = new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1);
-                    BlockPos b7 = new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1);
-
-                    BlockPos b8 = new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ()); //t2
-                    BlockPos b9 = new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ()); //t2
-
-                    BlockPos b10 = new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1);
-                    BlockPos b11 = new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1);
-
-                    BlockPos b12 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3);
-                    BlockPos b13 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3);
-
-                    BlockPos b14 = new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4); //t2
-                    BlockPos b15 = new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5); //t2
-                    BlockPos b16 = new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4); //t2
                     //level check
                     player.sendSystemMessage(Component.literal("Level"+getLevel(pLevel,pos)));
 
