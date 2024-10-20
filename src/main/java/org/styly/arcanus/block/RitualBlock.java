@@ -174,10 +174,12 @@ public class RitualBlock extends BaseEntityBlock {
                                 .map(RecipeHolder::value)
                                 .map(e -> e.assemble(recipeInput, pLevel.registryAccess()))
                                 .orElse(ItemStack.EMPTY);
-                        Arcanus.LOGGER.warn(String.valueOf(result));
 
                         ritualTile.setHeldItem(result);
-                        clearPedestals(pLevel,pos);
+                        if(result!=ItemStack.EMPTY) {
+                            ritualTile.setHeldItem(result);
+                            clearPedestals(pLevel,pos);
+                        }
 
                     }
 
