@@ -3,8 +3,6 @@ package org.styly.arcanus.recipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Arrays;
 import java.util.List;
 
 public record RitualRecipeInput(List<ItemStack> stacks) implements RecipeInput {

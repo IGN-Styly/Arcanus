@@ -23,9 +23,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.styly.arcanus.Arcanus;
+import org.styly.arcanus.recipe.RitualRecipeInput;
 import org.styly.arcanus.registry.ArcanusBlockEntityRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class RitualBlock extends BaseEntityBlock {
+
     // The important part is implementing the EntityBlock interface and overriding the #newBlockEntity method.
     public static final MapCodec<RitualBlock> CODEC = simpleCodec((t) -> new RitualBlock());
 
@@ -72,8 +78,86 @@ public class RitualBlock extends BaseEntityBlock {
                         pLevel.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
                     }
                     BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
+                    //Tier 2
+                    BlockPos b1 = new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() - 4); //t2
+                    BlockPos b2 = new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 5); //t2
+                    BlockPos b3 = new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() - 4); //t2
+
+                    BlockPos b8 = new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ()); //t2
+                    BlockPos b9 = new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ()); //t2
+
+                    BlockPos b14 = new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4); //t2
+                    BlockPos b15 = new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5); //t2
+                    BlockPos b16 = new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4); //t2
+                    //Tier 1
+                    BlockPos b4 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3);
+                    BlockPos b5 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3);
+
+                    BlockPos b6 = new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1);
+                    BlockPos b7 = new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1);
+
+
+                    BlockPos b10 = new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1);
+                    BlockPos b11 = new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1);
+
+                    BlockPos b12 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3);
+                    BlockPos b13 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3);
+
+
+
                     //level check
-                    player.sendSystemMessage(Component.literal("Level "+getLevel(pLevel,pos)));
+                    int level = getLevel(pLevel,pos);
+                    if (level>0){
+                        player.sendSystemMessage(Component.literal("Level "+level));
+                        ArrayList<ItemStack> inputs = new ArrayList<ItemStack>(17); // I think it makes it faster
+                        if(level==1){
+                            //set t2 slots to empty
+                            inputs.set(1,ItemStack.EMPTY);
+                            inputs.set(2,ItemStack.EMPTY);
+                            inputs.set(3,ItemStack.EMPTY);
+
+                            inputs.set(8,ItemStack.EMPTY);
+                            inputs.set(9,ItemStack.EMPTY);
+
+                            inputs.set(14,ItemStack.EMPTY);
+                            inputs.set(15,ItemStack.EMPTY);
+                            inputs.set(16,ItemStack.EMPTY);
+                            //set inputs according to table
+                            inputs.set(4,getTileItem(pLevel,b4));
+                            inputs.set(5,getTileItem(pLevel,b5));
+                            inputs.set(6,getTileItem(pLevel,b6));
+                            inputs.set(7,getTileItem(pLevel,b7));
+
+                            inputs.set(10,getTileItem(pLevel,b10));
+                            inputs.set(11,getTileItem(pLevel,b11));
+                            inputs.set(12,getTileItem(pLevel,b12));
+                            inputs.set(13,getTileItem(pLevel,b13));
+                        } else if (level==2) {
+                            //t2
+                            inputs.set(1,getTileItem(pLevel,b1));
+                            inputs.set(2,getTileItem(pLevel,b2));
+                            inputs.set(3,getTileItem(pLevel,b3));
+
+                            inputs.set(8,getTileItem(pLevel,b8));
+                            inputs.set(9,getTileItem(pLevel,b9));
+
+                            inputs.set(14,getTileItem(pLevel,b14));
+                            inputs.set(15,getTileItem(pLevel,b15));
+                            inputs.set(16,getTileItem(pLevel,b16));
+                            // t1
+                            inputs.set(4,getTileItem(pLevel,b4));
+                            inputs.set(5,getTileItem(pLevel,b5));
+                            inputs.set(6,getTileItem(pLevel,b6));
+                            inputs.set(7,getTileItem(pLevel,b7));
+
+                            inputs.set(10,getTileItem(pLevel,b10));
+                            inputs.set(11,getTileItem(pLevel,b11));
+                            inputs.set(12,getTileItem(pLevel,b12));
+                            inputs.set(13,getTileItem(pLevel,b13));
+                        }
+                        RitualRecipeInput input = new RitualRecipeInput(inputs);
+                    }
+
 
                 }
             }
@@ -138,6 +222,10 @@ public class RitualBlock extends BaseEntityBlock {
     public static boolean BlockInstanceOf(Level pLevel, BlockPos pos) {
         return pLevel.getBlockEntity(pos) instanceof PedestalTile;
     }
+
+    public static ItemStack getTileItem(Level pLevel,BlockPos pos){
+        return ((RitualBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pos))).getHeldItem();
+    };
 
     private void dropItem(ItemStack itemstack, Player owner) {
         if (owner instanceof ServerPlayer serverplayer) {
