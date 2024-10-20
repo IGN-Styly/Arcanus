@@ -73,7 +73,7 @@ public class RitualBlock extends BaseEntityBlock {
                     }
                     BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
                     //level check
-                    player.sendSystemMessage(Component.literal("Level"+getLevel(pLevel,pos)));
+                    player.sendSystemMessage(Component.literal("Level "+getLevel(pLevel,pos)));
 
                 }
             }
