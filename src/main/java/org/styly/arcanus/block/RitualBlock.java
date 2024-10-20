@@ -7,6 +7,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,6 +28,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.recipe.RitualRecipe;
@@ -179,6 +182,7 @@ public class RitualBlock extends BaseEntityBlock {
                         if(result!=ItemStack.EMPTY) {
                             ritualTile.setHeldItem(result);
                             clearPedestals(pLevel,pos);
+                            spawnLightning(pLevel,pos);
                         }
 
                     }
@@ -236,6 +240,61 @@ public class RitualBlock extends BaseEntityBlock {
         }
         for (BlockPos blockPos : poss) {
             Objects.requireNonNull((PedestalTile) pLevel.getBlockEntity(blockPos)).setHeldItem(ItemStack.EMPTY);
+        }
+    }
+    public static void spawnLightning(Level pLevel, BlockPos pos){
+        int level = getLevel(pLevel,pos);
+        ArrayList<BlockPos> poss= new ArrayList<>();
+        poss.add(pos);
+        if(level==1){
+            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1));
+
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1));
+
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
+        } else if (level==2){
+            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() - 1));
+
+
+            poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() + 1));
+            poss.add(new BlockPos(pos.getX() + 3, pos.getY(), pos.getZ() + 1));
+
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
+            poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
+
+            poss.add(new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() - 4)); //t2
+            poss.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 5)); //t2
+            poss.add(new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() - 4)); //t2
+
+            poss.add(new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ())); //t2
+            poss.add(new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ())); //t2
+
+            poss.add( new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
+            poss.add( new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
+            poss.add( new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
+
+
+
+        }
+        for (BlockPos blockPos : poss) {
+            LightningBolt entity = EntityType.LIGHTNING_BOLT.create(pLevel);
+            assert entity != null;
+            entity.setPos(new Vec3(blockPos.getX(),blockPos.getY(),blockPos.getZ()));
+            entity.setDamage(50);
+            entity.setVisualOnly(true);
+            pLevel.addFreshEntity(entity);
+
         }
     }
     public static boolean IsValid(Level pLevel, @NotNull BlockPos pos) {

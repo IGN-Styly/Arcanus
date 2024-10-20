@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.styly.arcanus.events.CancelSpell;
 import org.styly.arcanus.events.RegisterISSslot;
-import org.styly.arcanus.events.RegisterRecipes;
 import org.styly.arcanus.events.ServerPlayerEvents;
 import org.styly.arcanus.registry.*;
 
