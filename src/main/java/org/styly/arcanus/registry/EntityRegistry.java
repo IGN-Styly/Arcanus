@@ -12,6 +12,7 @@ import org.styly.arcanus.entities.RecollectionEntity;
 
 public class EntityRegistry {
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, Arcanus.MODID);
+
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
     }
@@ -22,4 +23,4 @@ public class EntityRegistry {
                     .clientTrackingRange(64)
                     .build(new ResourceLocation(Arcanus.MODID, "recollection").toString()));
 
-    }
+}

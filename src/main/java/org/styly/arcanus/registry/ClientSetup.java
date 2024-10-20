@@ -34,6 +34,7 @@ public class ClientSetup {
         event.registerBlockEntityRenderer(ArcanusBlockEntityRegistry.RITUAL_TABLE.get(), RitualRenderer::new);
 
     }
+
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.AddLayers event) {
         addLayerToPlayerSkin(event, PlayerSkin.Model.SLIM);
@@ -45,6 +46,7 @@ public class ClientSetup {
             }
         }
     }
+
     @SubscribeEvent
     public static void onRegisterLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         //LayerDefinition basicHumanLayer = LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0F), 64, 64);

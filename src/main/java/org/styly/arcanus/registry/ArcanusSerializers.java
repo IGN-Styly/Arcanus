@@ -18,7 +18,7 @@ public class ArcanusSerializers {
     public static final Supplier<RecipeSerializer<RitualRecipe>> RITUAL =
             RECIPE_SERIALIZERS.register("ritual", RitualRecipeSerializer::new);
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         RECIPE_SERIALIZERS.register(eventBus);
     }
 }

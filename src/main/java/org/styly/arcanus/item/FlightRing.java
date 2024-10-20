@@ -14,7 +14,7 @@ public class FlightRing extends Item implements ICurioItem {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        slotContext.entity().addEffect(new MobEffectInstance(ModEffects.FLIGHT,20)); //Adds Flight Effect
+        slotContext.entity().addEffect(new MobEffectInstance(ModEffects.FLIGHT, 20)); //Adds Flight Effect
     }
 
 

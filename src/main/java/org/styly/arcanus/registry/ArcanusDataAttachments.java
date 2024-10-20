@@ -16,7 +16,8 @@ public class ArcanusDataAttachments {
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<Float>> DAMAGE_ABSORB = ATTACHMENT_TYPES.register(
             "damage_absorb", () -> AttachmentType.builder(() -> 0.0f).serialize(Codec.FLOAT).build()
     );
-    public static void register(IEventBus eventBus){
+
+    public static void register(IEventBus eventBus) {
         ATTACHMENT_TYPES.register(eventBus);
     }
 }

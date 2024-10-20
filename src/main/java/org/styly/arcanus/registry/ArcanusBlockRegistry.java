@@ -13,7 +13,7 @@ public class ArcanusBlockRegistry {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Arcanus.MODID);
     public static final DeferredBlock<Block> RITUAL_TABLE_BLOCK = BLOCKS.register("ritual_table", RitualBlock::new);
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
 }

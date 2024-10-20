@@ -116,53 +116,52 @@ public class RitualBlock extends BaseEntityBlock {
                     BlockPos b13 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3);
 
 
-
                     //level check
-                    int level = getLevel(pLevel,pos);
-                    if (level>0){
+                    int level = getLevel(pLevel, pos);
+                    if (level > 0) {
                         ArrayList<ItemStack> inputs = new ArrayList<ItemStack>(); // I think it makes it faster
-                        for(int i =0;i<=16;i++){
+                        for (int i = 0; i <= 16; i++) {
                             //populate Arraylist cause java
-                           inputs.add(new ItemStack(ModItems.AIR.get()));
+                            inputs.add(new ItemStack(ModItems.AIR.get()));
                         }
 
-                        if(level==1){
+                        if (level == 1) {
                             //set inputs according to table
-                            inputs.set(4,getTileItem(pLevel,b4));
-                            inputs.set(5,getTileItem(pLevel,b5));
-                            inputs.set(6,getTileItem(pLevel,b6));
-                            inputs.set(7,getTileItem(pLevel,b7));
+                            inputs.set(4, getTileItem(pLevel, b4));
+                            inputs.set(5, getTileItem(pLevel, b5));
+                            inputs.set(6, getTileItem(pLevel, b6));
+                            inputs.set(7, getTileItem(pLevel, b7));
 
-                            inputs.set(10,getTileItem(pLevel,b10));
-                            inputs.set(11,getTileItem(pLevel,b11));
-                            inputs.set(12,getTileItem(pLevel,b12));
-                            inputs.set(13,getTileItem(pLevel,b13));
-                        } else if (level==2) {
+                            inputs.set(10, getTileItem(pLevel, b10));
+                            inputs.set(11, getTileItem(pLevel, b11));
+                            inputs.set(12, getTileItem(pLevel, b12));
+                            inputs.set(13, getTileItem(pLevel, b13));
+                        } else if (level == 2) {
                             //t2
-                            inputs.set(1,getTileItem(pLevel,b1));
-                            inputs.set(2,getTileItem(pLevel,b2));
-                            inputs.set(3,getTileItem(pLevel,b3));
+                            inputs.set(1, getTileItem(pLevel, b1));
+                            inputs.set(2, getTileItem(pLevel, b2));
+                            inputs.set(3, getTileItem(pLevel, b3));
 
-                            inputs.set(8,getTileItem(pLevel,b8));
-                            inputs.set(9,getTileItem(pLevel,b9));
+                            inputs.set(8, getTileItem(pLevel, b8));
+                            inputs.set(9, getTileItem(pLevel, b9));
 
-                            inputs.set(14,getTileItem(pLevel,b14));
-                            inputs.set(15,getTileItem(pLevel,b15));
-                            inputs.set(16,getTileItem(pLevel,b16));
+                            inputs.set(14, getTileItem(pLevel, b14));
+                            inputs.set(15, getTileItem(pLevel, b15));
+                            inputs.set(16, getTileItem(pLevel, b16));
                             // t1
-                            inputs.set(4,getTileItem(pLevel,b4));
-                            inputs.set(5,getTileItem(pLevel,b5));
-                            inputs.set(6,getTileItem(pLevel,b6));
-                            inputs.set(7,getTileItem(pLevel,b7));
+                            inputs.set(4, getTileItem(pLevel, b4));
+                            inputs.set(5, getTileItem(pLevel, b5));
+                            inputs.set(6, getTileItem(pLevel, b6));
+                            inputs.set(7, getTileItem(pLevel, b7));
 
-                            inputs.set(10,getTileItem(pLevel,b10));
-                            inputs.set(11,getTileItem(pLevel,b11));
-                            inputs.set(12,getTileItem(pLevel,b12));
-                            inputs.set(13,getTileItem(pLevel,b13));
+                            inputs.set(10, getTileItem(pLevel, b10));
+                            inputs.set(11, getTileItem(pLevel, b11));
+                            inputs.set(12, getTileItem(pLevel, b12));
+                            inputs.set(13, getTileItem(pLevel, b13));
                         }
-                        for(int i =0;i<inputs.size();i++){
-                            if(inputs.get(i).is(Items.AIR)){
-                                inputs.set(i,new ItemStack(ModItems.AIR.get()));
+                        for (int i = 0; i < inputs.size(); i++) {
+                            if (inputs.get(i).is(Items.AIR)) {
+                                inputs.set(i, new ItemStack(ModItems.AIR.get()));
                             }
                         }
                         RitualRecipeInput recipeInput = new RitualRecipeInput(inputs);
@@ -179,10 +178,10 @@ public class RitualBlock extends BaseEntityBlock {
                                 .orElse(ItemStack.EMPTY);
 
                         ritualTile.setHeldItem(result);
-                        if(result!=ItemStack.EMPTY) {
+                        if (result != ItemStack.EMPTY) {
                             ritualTile.setHeldItem(result);
-                            clearPedestals(pLevel,pos);
-                            spawnLightning(pLevel,pos);
+                            clearPedestals(pLevel, pos);
+                            spawnLightning(pLevel, pos);
                         }
 
                     }
@@ -194,11 +193,12 @@ public class RitualBlock extends BaseEntityBlock {
 
         return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
     }
-    public static void clearPedestals(Level pLevel, BlockPos pos){
-        int level = getLevel(pLevel,pos);
-        ArrayList<BlockPos> poss= new ArrayList<>();
-        if(level==1){
-            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+
+    public static void clearPedestals(Level pLevel, BlockPos pos) {
+        int level = getLevel(pLevel, pos);
+        ArrayList<BlockPos> poss = new ArrayList<>();
+        if (level == 1) {
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
 
             poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
@@ -210,8 +210,8 @@ public class RitualBlock extends BaseEntityBlock {
 
             poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
-        } else if (level==2){
-            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+        } else if (level == 2) {
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
 
             poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
@@ -231,10 +231,9 @@ public class RitualBlock extends BaseEntityBlock {
             poss.add(new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ())); //t2
             poss.add(new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ())); //t2
 
-            poss.add( new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
-            poss.add( new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
-            poss.add( new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
-
+            poss.add(new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
+            poss.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
+            poss.add(new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
 
 
         }
@@ -242,12 +241,13 @@ public class RitualBlock extends BaseEntityBlock {
             Objects.requireNonNull((PedestalTile) pLevel.getBlockEntity(blockPos)).setHeldItem(ItemStack.EMPTY);
         }
     }
-    public static void spawnLightning(Level pLevel, BlockPos pos){
-        int level = getLevel(pLevel,pos);
-        ArrayList<BlockPos> poss= new ArrayList<>();
+
+    public static void spawnLightning(Level pLevel, BlockPos pos) {
+        int level = getLevel(pLevel, pos);
+        ArrayList<BlockPos> poss = new ArrayList<>();
         poss.add(pos);
-        if(level==1){
-            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+        if (level == 1) {
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
 
             poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
@@ -259,8 +259,8 @@ public class RitualBlock extends BaseEntityBlock {
 
             poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3));
-        } else if (level==2){
-            poss.add( new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
+        } else if (level == 2) {
+            poss.add(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 3));
             poss.add(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 3));
 
             poss.add(new BlockPos(pos.getX() - 3, pos.getY(), pos.getZ() - 1));
@@ -280,23 +280,23 @@ public class RitualBlock extends BaseEntityBlock {
             poss.add(new BlockPos(pos.getX() - 5, pos.getY(), pos.getZ())); //t2
             poss.add(new BlockPos(pos.getX() + 5, pos.getY(), pos.getZ())); //t2
 
-            poss.add( new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
-            poss.add( new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
-            poss.add( new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
-
+            poss.add(new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() + 4)); //t2
+            poss.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 5)); //t2
+            poss.add(new BlockPos(pos.getX() + 4, pos.getY(), pos.getZ() + 4)); //t2
 
 
         }
         for (BlockPos blockPos : poss) {
             LightningBolt entity = EntityType.LIGHTNING_BOLT.create(pLevel);
             assert entity != null;
-            entity.setPos(new Vec3(blockPos.getX(),blockPos.getY(),blockPos.getZ()));
+            entity.setPos(new Vec3(blockPos.getX(), blockPos.getY(), blockPos.getZ()));
             entity.setDamage(50);
             entity.setVisualOnly(true);
             pLevel.addFreshEntity(entity);
 
         }
     }
+
     public static boolean IsValid(Level pLevel, @NotNull BlockPos pos) {
         BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
 
@@ -354,9 +354,11 @@ public class RitualBlock extends BaseEntityBlock {
         return pLevel.getBlockEntity(pos) instanceof PedestalTile;
     }
 
-    public static ItemStack getTileItem(Level pLevel,BlockPos pos){
+    public static ItemStack getTileItem(Level pLevel, BlockPos pos) {
         return ((PedestalTile) Objects.requireNonNull(pLevel.getBlockEntity(pos))).getHeldItem();
-    };
+    }
+
+    ;
 
     private void dropItem(ItemStack itemstack, Player owner) {
         if (owner instanceof ServerPlayer serverplayer) {

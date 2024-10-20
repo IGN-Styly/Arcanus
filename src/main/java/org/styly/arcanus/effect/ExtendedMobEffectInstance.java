@@ -13,7 +13,8 @@ public class ExtendedMobEffectInstance extends MagicMobEffect {
     public float getDamageSave() {
         return this.DamageSave;
     }
-    public void setDamageSave(float dmg){
-        this.DamageSave=dmg;
+
+    public void setDamageSave(float dmg) {
+        this.DamageSave = dmg;
     }
 }

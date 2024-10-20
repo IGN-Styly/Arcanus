@@ -14,7 +14,7 @@ public class ServerPlayerEvents {
         if ((livingEntity instanceof ServerPlayer) || (livingEntity instanceof IMagicEntity)) {
             var playerMagicData = MagicData.getPlayerMagicData(livingEntity);
             if (livingEntity.hasEffect(ModEffects.DarkVeil)) {
-                DarkVeilEffect.doEffect(livingEntity,event);
+                DarkVeilEffect.doEffect(livingEntity, event);
             }
         }
     }

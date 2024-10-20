@@ -10,7 +10,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class CancelSpell {
     @SubscribeEvent
-    public static void SpellPreCastEvent(SpellPreCastEvent event){
+    public static void SpellPreCastEvent(SpellPreCastEvent event) {
         if (event.getEntity().hasEffect(ModEffects.MAGIC_BLOCKED)) {
             event.setCanceled(true);
         }

@@ -17,14 +17,16 @@ public class RitualRecipe implements Recipe<RitualRecipeInput> {
     private final List<ItemStack> inputItems;
     private final ItemStack result;
 
-    public RitualRecipe(List<ItemStack> inputItems,ItemStack result){
-        this.inputItems=inputItems;
-        this.result=result;
+    public RitualRecipe(List<ItemStack> inputItems, ItemStack result) {
+        this.inputItems = inputItems;
+        this.result = result;
     }
+
     @Override
     public boolean matches(RitualRecipeInput input, Level level) {
-        return  input.matches(inputItems);
+        return input.matches(inputItems);
     }
+
     @Override
     public ItemStack getResultItem(HolderLookup.Provider registries) {
         return this.result;

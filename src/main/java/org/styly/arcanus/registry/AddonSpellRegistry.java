@@ -18,9 +18,10 @@ public class AddonSpellRegistry {
     public static void register(IEventBus eventBus) {
         SPELLS.register(eventBus);
     }
-    public static final Supplier<AbstractSpell> theFool= SPELLS.register("the_fool", TheFool::new);
+
+    public static final Supplier<AbstractSpell> theFool = SPELLS.register("the_fool", TheFool::new);
     public static final Supplier<AbstractSpell> Recollection = SPELLS.register("recollection", Recollection::new);
-    public static final Supplier<AbstractSpell> DarkVeil=SPELLS.register("dark_veil", DarkVeil::new);
+    public static final Supplier<AbstractSpell> DarkVeil = SPELLS.register("dark_veil", DarkVeil::new);
 
     public static Supplier<AbstractSpell> registerSpell(AbstractSpell spell) {
         return SPELLS.register(spell.getSpellName(), () -> spell);

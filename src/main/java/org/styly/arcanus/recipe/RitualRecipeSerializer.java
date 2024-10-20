@@ -40,7 +40,7 @@ public class RitualRecipeSerializer implements RecipeSerializer<RitualRecipe> {
             );
 
     public static final MapCodec<RitualRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-            ItemStack.CODEC.listOf(1,17).fieldOf("ingredients").forGetter(RitualRecipe::getInputItems),
+            ItemStack.CODEC.listOf(1, 17).fieldOf("ingredients").forGetter(RitualRecipe::getInputItems),
             ItemStack.CODEC.fieldOf("result").forGetter(RitualRecipe::getResult)
     ).apply(inst, RitualRecipe::new));
     public static final StreamCodec<RegistryFriendlyByteBuf, RitualRecipe> STREAM_CODEC =

@@ -20,11 +20,12 @@ import org.styly.arcanus.effect.flight;
 public class ModEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, Arcanus.MODID);
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }
-    public static final DeferredHolder<MobEffect, DarkVeilEffect> DarkVeil=MOB_EFFECTS.register("dark_veil",()->new DarkVeilEffect(MobEffectCategory.BENEFICIAL,12));
-    public static final Holder<MobEffect> FLIGHT = MOB_EFFECTS.register("flight",()->new flight(MobEffectCategory.BENEFICIAL,4393481).addAttributeModifier(NeoForgeMod.CREATIVE_FLIGHT.getDelegate(),NeoForgeMod.CREATIVE_FLIGHT.getKey().location(),1.0, AttributeModifier.Operation.ADD_VALUE));
-    public static final Holder<MobEffect> FULL_MOON = MOB_EFFECTS.register("full_moon",()->new FullMoon(MobEffectCategory.BENEFICIAL,490).addAttributeModifier(AttributeRegistry.SPELL_POWER.getDelegate(),AttributeRegistry.SPELL_POWER.getId(),0.50, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.ATTACK_DAMAGE,Attributes.ATTACK_DAMAGE.getKey().location(),7.0, AttributeModifier.Operation.ADD_VALUE).addAttributeModifier(AttributeRegistry.SPELL_RESIST.getDelegate(),AttributeRegistry.SPELL_RESIST.getId(),0.5,AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-    public static final Holder<MobEffect> MAGIC_BLOCKED = MOB_EFFECTS.register("magic_block",()->new MagicBlocked(MobEffectCategory.BENEFICIAL,4393481));
+
+    public static final DeferredHolder<MobEffect, DarkVeilEffect> DarkVeil = MOB_EFFECTS.register("dark_veil", () -> new DarkVeilEffect(MobEffectCategory.BENEFICIAL, 12));
+    public static final Holder<MobEffect> FLIGHT = MOB_EFFECTS.register("flight", () -> new flight(MobEffectCategory.BENEFICIAL, 4393481).addAttributeModifier(NeoForgeMod.CREATIVE_FLIGHT.getDelegate(), NeoForgeMod.CREATIVE_FLIGHT.getKey().location(), 1.0, AttributeModifier.Operation.ADD_VALUE));
+    public static final Holder<MobEffect> FULL_MOON = MOB_EFFECTS.register("full_moon", () -> new FullMoon(MobEffectCategory.BENEFICIAL, 490).addAttributeModifier(AttributeRegistry.SPELL_POWER.getDelegate(), AttributeRegistry.SPELL_POWER.getId(), 0.50, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.ATTACK_DAMAGE, Attributes.ATTACK_DAMAGE.getKey().location(), 7.0, AttributeModifier.Operation.ADD_VALUE).addAttributeModifier(AttributeRegistry.SPELL_RESIST.getDelegate(), AttributeRegistry.SPELL_RESIST.getId(), 0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+    public static final Holder<MobEffect> MAGIC_BLOCKED = MOB_EFFECTS.register("magic_block", () -> new MagicBlocked(MobEffectCategory.BENEFICIAL, 4393481));
 }

@@ -100,7 +100,6 @@ public class Recollection extends AbstractSpell {
         float distance = 10.9f;
 
 
-
         Vec3 forward = entity.getForward();
         Vec3 hitLocation = entity.position().add(0, entity.getBbHeight() * .3f, 0).add(forward.scale(distance));
         var entities = level.getEntities(entity, AABB.ofSize(hitLocation, radius * 2, radius, radius * 2));

@@ -11,12 +11,12 @@ import top.theillusivec4.curios.api.SlotResult;
 
 public class RegisterISSslot {
     @SubscribeEvent
-    public static void SpellSelectionEvent(SpellSelectionManager.SpellSelectionEvent event){
+    public static void SpellSelectionEvent(SpellSelectionManager.SpellSelectionEvent event) {
         String equipmentSlot = Curios.RING_SLOT;
         ItemStack itemStack = CuriosApi.getCuriosHelper().findCurio(event.getEntity(), Curios.RING_SLOT, 0).map(SlotResult::stack).orElse(null);
         if (ISpellContainer.isSpellContainer(itemStack)) {
             var spellContainer = ISpellContainer.get(itemStack);
-            if (spellContainer.isSpellWheel() && (!spellContainer.mustEquip() )) {
+            if (spellContainer.isSpellWheel() && (!spellContainer.mustEquip())) {
                 var activeSpells = spellContainer.getActiveSpells();
                 for (int i = 0; i < activeSpells.size(); i++) {
                     var spellSlot = activeSpells.get(i);

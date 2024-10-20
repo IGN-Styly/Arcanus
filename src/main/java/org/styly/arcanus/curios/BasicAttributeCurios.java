@@ -24,6 +24,7 @@ public class BasicAttributeCurios extends Item implements ICurioItem {
     public BasicAttributeCurios(Item.Properties properties) {
         super(properties);
     }
+
     @Override
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         return slotContext.identifier().equals(this.attributeSlot) ? attributes : ICurioItem.super.getAttributeModifiers(slotContext, id, stack);
@@ -32,6 +33,7 @@ public class BasicAttributeCurios extends Item implements ICurioItem {
     public boolean isEquippedBy(@Nullable LivingEntity entity) {
         return entity != null && CuriosApi.getCuriosHelper().findFirstCurio(entity, this).isPresent();
     }
+
     public BasicAttributeCurios withAttributes(String slot, AttributeContainer... attributes) {
         ImmutableMultimap.Builder<Holder<Attribute>, AttributeModifier> builder = ImmutableMultimap.builder();
         for (AttributeContainer holder : attributes) {

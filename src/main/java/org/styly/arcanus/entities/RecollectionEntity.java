@@ -14,7 +14,7 @@ import org.styly.arcanus.registry.EntityRegistry;
 
 import java.util.Optional;
 
-public class RecollectionEntity extends AoeEntity{
+public class RecollectionEntity extends AoeEntity {
     private static final EntityDataAccessor<Boolean> DATA_MIRRORED = SynchedEntityData.defineId(org.styly.arcanus.entities.RecollectionEntity.class, EntityDataSerializers.BOOLEAN);
 
     public RecollectionEntity(EntityType<? extends Projectile> pEntityType, Level pLevel) {

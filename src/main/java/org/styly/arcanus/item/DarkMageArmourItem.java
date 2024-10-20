@@ -11,7 +11,7 @@ import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public class DarkMageArmourItem extends ImbuableDarkChestplateArmorItem {
     public DarkMageArmourItem(ArmorItem.Type type, Item.Properties settings) {
-        super(ArmorMaterialRegistry.NETHERITE_BATTLEMAGE, type, settings, withManaAndSpellPowerAttribute(2500,0.25));
+        super(ArmorMaterialRegistry.NETHERITE_BATTLEMAGE, type, settings, withManaAndSpellPowerAttribute(2500, 0.25));
     }
 
     @Override

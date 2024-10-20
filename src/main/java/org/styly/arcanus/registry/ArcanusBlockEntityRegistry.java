@@ -29,7 +29,8 @@ public class ArcanusBlockEntityRegistry {
                     // Build using null; vanilla does some datafixer shenanigans with the parameter that we don't need.
                     .build(null)
     );
-    public static void register(IEventBus eventBus){
+
+    public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPES.register(eventBus);
     }
 }

@@ -7,7 +7,7 @@ import software.bernie.geckolib.model.DefaultedItemGeoModel;
 
 public class DarkMageModel extends DefaultedItemGeoModel<DarkMageArmourItem> {
 
-    public DarkMageModel(){
+    public DarkMageModel() {
         super(new ResourceLocation(Arcanus.MODID, ""));
     }
 

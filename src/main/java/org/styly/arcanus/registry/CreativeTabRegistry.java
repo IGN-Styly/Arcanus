@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import static org.styly.arcanus.Arcanus.MODID;
 
 public class CreativeTabRegistry {
-    private static final DeferredRegister<CreativeModeTab> CreativeTabRegister= DeferredRegister.create(Registries.CREATIVE_MODE_TAB,MODID);
+    private static final DeferredRegister<CreativeModeTab> CreativeTabRegister = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     public static final Holder<CreativeModeTab> ARCANUS_TAB = CreativeTabRegister.register("items", () -> CreativeModeTab.builder()
             // Set name of tab to display
             .title(Component.translatable("item_group." + MODID + ".items"))
@@ -20,7 +20,6 @@ public class CreativeTabRegistry {
             // Add default items to tab
             .displayItems((params, output) -> {
                 output.accept(ModItems.Card.get());
-
                 output.accept(ModItems.BandOfBlessing.get());
                 output.accept(ModItems.DiademOftheDragon.get());
                 output.accept(ModItems.EmblemOfEvoker.get());
@@ -32,7 +31,7 @@ public class CreativeTabRegistry {
 
                 output.accept(ModItems.eldritch_rune.get());
                 output.accept(ModItems.ARCANE_SILK.get());
-                
+
                 output.accept(ModItems.NETHERITE_MAGE_HELMET.get());
                 output.accept(ModItems.NETHERITE_MAGE_CHESTPLATE.get());
                 output.accept(ModItems.NETHERITE_MAGE_LEGGINGS.get());
@@ -44,7 +43,7 @@ public class CreativeTabRegistry {
             .build()
     );
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         CreativeTabRegister.register(eventBus); // Made A cool spelling Bug causing infinite Recursion
     }
 }

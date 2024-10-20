@@ -10,12 +10,14 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class RitualRecipeBuilder extends SimpleRecipeBuilder{
+public class RitualRecipeBuilder extends SimpleRecipeBuilder {
     private final List<ItemStack> inputItems;
-    public RitualRecipeBuilder(ItemStack result,List<ItemStack> inputItems){
+
+    public RitualRecipeBuilder(ItemStack result, List<ItemStack> inputItems) {
         super(result);
-        this.inputItems=inputItems;
+        this.inputItems = inputItems;
     }
+
     // Saves a recipe using the given RecipeOutput and id. This method is defined in the RecipeBuilder interface.
     @Override
     public void save(RecipeOutput output, ResourceLocation id) {

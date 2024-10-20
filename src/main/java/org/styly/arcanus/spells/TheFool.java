@@ -31,7 +31,7 @@ public class TheFool extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.arcanus.thefool")
-                );
+        );
 
     }
 
@@ -47,9 +47,10 @@ public class TheFool extends AbstractSpell {
         this.castTime = 15;
         this.baseManaCost = 1500;
     }
+
     @Override
     public boolean canBeCraftedBy(Player player) {
-         return player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c");
+        return player.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c");
     }
 
 
@@ -67,6 +68,7 @@ public class TheFool extends AbstractSpell {
     public ResourceLocation getSpellResource() {
         return spellId;
     }
+
     @Override
     public Optional<SoundEvent> getCastFinishSound() {
         return Optional.of(SoundEvents.NETHERITE_BLOCK_BREAK);
@@ -75,19 +77,19 @@ public class TheFool extends AbstractSpell {
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
 
-        if(entity.getTags().contains("fool")&&entity instanceof Player){
+        if (entity.getTags().contains("fool") && entity instanceof Player) {
             //Lore feature doesn't matter unless you are @Amadhe :D
             ServerPlayer serverPlayer = (ServerPlayer) entity;
             playerMagicData.addMana(250);
-            PacketDistributor.sendToPlayer(serverPlayer,new SyncManaPacket(playerMagicData));
-            AABB box = new AABB(entity.blockPosition()).expandTowards(50,50,50).expandTowards(-50,-50,-50);
-            level.getEntitiesOfClass(LivingEntity.class, box, target -> target.distanceTo(entity)<=20&&target!=entity).forEach(target->target.addEffect(new MobEffectInstance(ModEffects.MAGIC_BLOCKED,2400,0)));
+            PacketDistributor.sendToPlayer(serverPlayer, new SyncManaPacket(playerMagicData));
+            AABB box = new AABB(entity.blockPosition()).expandTowards(50, 50, 50).expandTowards(-50, -50, -50);
+            level.getEntitiesOfClass(LivingEntity.class, box, target -> target.distanceTo(entity) <= 20 && target != entity).forEach(target -> target.addEffect(new MobEffectInstance(ModEffects.MAGIC_BLOCKED, 2400, 0)));
         } else {
-            AABB box = new AABB(entity.blockPosition()).expandTowards(50,50,50).expandTowards(-50,-50,-50);
-            level.getEntitiesOfClass(LivingEntity.class, box, target -> target.distanceTo(entity)<=10&&target!=entity&& !target.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c")).forEach(target->target.addEffect(new MobEffectInstance(ModEffects.MAGIC_BLOCKED,600,0)));
+            AABB box = new AABB(entity.blockPosition()).expandTowards(50, 50, 50).expandTowards(-50, -50, -50);
+            level.getEntitiesOfClass(LivingEntity.class, box, target -> target.distanceTo(entity) <= 10 && target != entity && !target.getStringUUID().equals("03d1d7ca-657f-45ad-a51b-1f5dc85b2f4c")).forEach(target -> target.addEffect(new MobEffectInstance(ModEffects.MAGIC_BLOCKED, 600, 0)));
 
         }
-         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
+        super.onCast(level, spellLevel, entity, castSource, playerMagicData);
 
     }
 }

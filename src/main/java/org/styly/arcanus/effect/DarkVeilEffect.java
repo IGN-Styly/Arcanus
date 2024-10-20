@@ -20,16 +20,16 @@ public class DarkVeilEffect extends MagicMobEffect {
     }
 
     public static void doEffect(LivingEntity livingEntity, LivingIncomingDamageEvent event) {
-        float DamageSave=livingEntity.getData(ArcanusDataAttachments.DAMAGE_ABSORB);
+        float DamageSave = livingEntity.getData(ArcanusDataAttachments.DAMAGE_ABSORB);
         Arcanus.LOGGER.warn(String.valueOf(DamageSave));
         if (event.getAmount() > DamageSave) {
             event.setAmount(event.getAmount() - DamageSave);
-            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, 0f);
         } else if (DamageSave > event.getAmount()) {
             livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, DamageSave - event.getAmount());
             event.setCanceled(true);
         } else if (DamageSave == event.getAmount()) {
-            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
+            livingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, 0f);
             event.setCanceled(true);
         }
         // Just in case **wink** ;)
@@ -40,14 +40,14 @@ public class DarkVeilEffect extends MagicMobEffect {
 
     @Override
     public void onEffectAdded(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,(float)((pAmplifier+1) * 25 + 25));
+        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, (float) ((pAmplifier + 1) * 25 + 25));
         MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(DarkVeilEffectLong);
         super.onEffectAdded(pLivingEntity, pAmplifier);
     }
 
     @Override
     public void onEffectRemoved(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB,0f);
+        pLivingEntity.setData(ArcanusDataAttachments.DAMAGE_ABSORB, 0f);
         MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().removeEffects(DarkVeilEffectLong);
         super.onEffectRemoved(pLivingEntity, pAmplifier);
     }

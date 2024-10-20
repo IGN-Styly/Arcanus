@@ -62,4 +62,5 @@ public class RecollectionRenderer extends EntityRenderer<RecollectionEntity> {
         int frame = (entity.tickCount / entity.ticksPerFrame) % TEXTURES.length;
         return TEXTURES[frame];
         //return TEXTURE;
-    }}
+    }
+}

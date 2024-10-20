@@ -20,7 +20,8 @@ public class ArcanusRecipes {
                     // We need the qualifying generic here due to generics being generics.
                     () -> RecipeType.<RitualRecipe>simple(ResourceLocation.fromNamespaceAndPath(Arcanus.MODID, "ritual"))
             );
-    public static void register(IEventBus eventBus){
+
+    public static void register(IEventBus eventBus) {
         RECIPE_TYPES.register(eventBus);
     }
 }

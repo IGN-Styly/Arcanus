@@ -17,7 +17,7 @@ import org.styly.arcanus.registry.ModEffects;
 
 public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem implements IPresetSpellContainer {
     public ImbuableDarkChestplateArmorItem(Holder<ArmorMaterial> material, ArmorItem.Type type, Item.Properties settings, AttributeContainer... attributes) {
-        super(material, type, settings,attributes);
+        super(material, type, settings, attributes);
     }
 
     private boolean hasFullSuitOfArmorOn(Player player) {
@@ -33,10 +33,10 @@ public abstract class ImbuableDarkChestplateArmorItem extends ExtendedArmorItem 
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if(!pLevel.isClientSide&&pEntity instanceof Player&&pLevel.isNight()){
-            if(hasFullSuitOfArmorOn((Player) pEntity)){
+        if (!pLevel.isClientSide && pEntity instanceof Player && pLevel.isNight()) {
+            if (hasFullSuitOfArmorOn((Player) pEntity)) {
                 Player player = (Player) pEntity;
-                player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON,60));
+                player.addEffect(new MobEffectInstance(ModEffects.FULL_MOON, 60));
             }
         }
     }

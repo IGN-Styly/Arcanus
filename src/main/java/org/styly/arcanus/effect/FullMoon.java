@@ -12,13 +12,13 @@ public class FullMoon extends MobEffect {
 
 
     public void removeAttributeModifiers(LivingEntity livingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers( pAttributeMap);
+        super.removeAttributeModifiers(pAttributeMap);
 
     }
 
 
     public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers( pAttributeMap, pAmplifier);
+        super.addAttributeModifiers(pAttributeMap, pAmplifier);
 
     }
 }

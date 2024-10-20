@@ -17,7 +17,8 @@ import org.styly.arcanus.registry.*;
 @Mod(Arcanus.MODID)
 public class Arcanus {
     public static final Logger LOGGER = LogUtils.getLogger();
-    public Arcanus(IEventBus eventBus){
+
+    public Arcanus(IEventBus eventBus) {
         ModItems.register(eventBus);
         EntityRegistry.register(eventBus);
         ArcanusBlockEntityRegistry.register(eventBus);
@@ -37,6 +38,7 @@ public class Arcanus {
     public static ResourceLocation id(@NotNull String path) {
         return new ResourceLocation(Arcanus.MODID, path);
     }
+
     // Define mod id in a common place for everything to reference
     public static final String MODID = "arcanus";
 
