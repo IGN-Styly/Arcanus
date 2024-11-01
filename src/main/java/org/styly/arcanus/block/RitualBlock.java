@@ -3,6 +3,7 @@ package org.styly.arcanus.block;
 import com.mojang.serialization.MapCodec;
 import io.redspace.ironsspellbooks.block.pedestal.PedestalTile;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.recipe.RitualRecipe;
 import org.styly.arcanus.recipe.RitualRecipeInput;
 import org.styly.arcanus.registry.ArcanusRecipes;
@@ -150,7 +152,7 @@ public class RitualBlock extends BaseEntityBlock {
                             inputs.set(13, getTileItem(pLevel, b13));
                         }
                         for (int i = 0; i < inputs.size(); i++) {
-                            if (inputs.get(i).is(Items.AIR)) {
+                            if (inputs.get(i).is(ItemStack.EMPTY.getItem())) {
                                 inputs.set(i, new ItemStack(ModItems.AIR.get()));
                             }
                         }
@@ -166,7 +168,9 @@ public class RitualBlock extends BaseEntityBlock {
                                 .map(RecipeHolder::value)
                                 .map(e -> e.assemble(recipeInput, pLevel.registryAccess()))
                                 .orElse(ItemStack.EMPTY);
-
+                        Arcanus.LOGGER.warn(String.valueOf(result));
+                        Arcanus.LOGGER.warn(String.valueOf(inputs));
+                        Arcanus.LOGGER.warn(String.valueOf(inputs.size()));
                         ritualTile.setHeldItem(result);
                         if (result != ItemStack.EMPTY) {
                             ritualTile.setHeldItem(result);

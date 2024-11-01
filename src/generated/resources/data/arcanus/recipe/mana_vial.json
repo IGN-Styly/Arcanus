@@ -1,0 +1,77 @@
+{
+  "type": "arcanus:ritual",
+  "ingredients": [
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "irons_spellbooks:permafrost_shard"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:empty_vial"
+    },
+    {
+      "count": 1,
+      "id": "irons_spellbooks:permafrost_shard"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:air"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "arcanus:eldritch_rune"
+    },
+    {
+      "count": 1,
+      "id": "irons_spellbooks:permafrost_shard"
+    },
+    {
+      "count": 1,
+      "id": "irons_spellbooks:upgrade_orb"
+    },
+    {
+      "count": 1,
+      "id": "irons_spellbooks:permafrost_shard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "arcanus:mana_vial"
+  }
+}

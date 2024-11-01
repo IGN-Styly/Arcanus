@@ -1,6 +1,7 @@
 package org.styly.arcanus.events;
 
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import org.styly.arcanus.Arcanus;
@@ -13,6 +14,7 @@ public class CancelSpell {
     public static void SpellPreCastEvent(SpellPreCastEvent event) {
         if (event.getEntity().hasEffect(ModEffects.MAGIC_BLOCKED)) {
             event.setCanceled(true);
+            event.getEntity().displayClientMessage(Component.translatable("menu.arcanus.cast_error"),true);
         }
         var player = event.getEntity();
         Arcanus.LOGGER.warn("Casting");
