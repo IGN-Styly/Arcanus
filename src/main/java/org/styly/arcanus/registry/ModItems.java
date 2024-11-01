@@ -45,7 +45,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> RITUAL_TABLE_ITEM = ITEMS.registerSimpleBlockItem(ArcanusBlockRegistry.RITUAL_TABLE_BLOCK);
 
     //cool materials
-    public static final DeferredItem<Item> ARCANE_SILK = (DeferredItem<Item>) ITEMS.register("arcane_silk", () -> new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
+    public static final DeferredItem<Item> ARCANE_SILK = ITEMS.register("arcane_silk", () -> new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
 
     //Cool rings
     public static final DeferredHolder<Item, FlightRing> RING_OF_FLIGHT = ITEMS.register("flight_ring", FlightRing::new);
