@@ -60,7 +60,7 @@ public class RitualBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pos);
             if (entity instanceof RitualBlockEntity ritualTile) {
-                if (player.isShiftKeyDown()) {
+                if (!player.isShiftKeyDown()) {
                     ItemStack currentPedestalItem = ritualTile.getHeldItem();
                     ItemStack handItem = player.getItemInHand(hand);
 
@@ -72,15 +72,20 @@ public class RitualBlock extends BaseEntityBlock {
                         dropItem(playerItem, player);
                     }
                     ritualTile.setHeldItem(ItemStack.EMPTY);
+
+
+                    //Place a singular new Item
+                    currentPedestalItem = handItem.copy();
+                    if (!currentPedestalItem.isEmpty()) {
+                        currentPedestalItem.setCount(1);
+                        ritualTile.setHeldItem(currentPedestalItem);
+                        handItem.shrink(1);
+                    }
                     //Let clients know to update rendered item
                     pLevel.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
                 } else {
                     //Crafting Logic
-                    if (ritualTile.getHeldItem() != ItemStack.EMPTY) {
-                        dropItem(ritualTile.getHeldItem(), player);
-                        ritualTile.setHeldItem(ItemStack.EMPTY);
-                        pLevel.sendBlockUpdated(pos, state, state, Block.UPDATE_CLIENTS);
-                    }
+
                     BlockPos b0 = new BlockPos(pos.getX(), pos.getY(), pos.getZ()); //center aka result!
                     //Tier 2
                     BlockPos b1 = new BlockPos(pos.getX() - 4, pos.getY(), pos.getZ() - 4); //t2
@@ -168,10 +173,7 @@ public class RitualBlock extends BaseEntityBlock {
                                 .map(RecipeHolder::value)
                                 .map(e -> e.assemble(recipeInput, pLevel.registryAccess()))
                                 .orElse(ItemStack.EMPTY);
-                        Arcanus.LOGGER.warn(String.valueOf(result));
-                        Arcanus.LOGGER.warn(String.valueOf(inputs));
-                        Arcanus.LOGGER.warn(String.valueOf(inputs.size()));
-                        ritualTile.setHeldItem(result);
+
                         if (result != ItemStack.EMPTY) {
                             ritualTile.setHeldItem(result);
                             clearPedestals(pLevel, pos);
