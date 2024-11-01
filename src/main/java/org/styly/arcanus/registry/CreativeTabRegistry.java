@@ -32,6 +32,10 @@ public class CreativeTabRegistry {
                 output.accept(ModItems.eldritch_rune.get());
                 output.accept(ModItems.ARCANE_SILK.get());
 
+                output.accept(ModItems.RITUAL_TABLE_ITEM);
+                output.accept(ModItems.MANA_VIAL);
+                output.accept(ModItems.EMPTY_VIAL);
+
                 output.accept(ModItems.NETHERITE_MAGE_HELMET.get());
                 output.accept(ModItems.NETHERITE_MAGE_CHESTPLATE.get());
                 output.accept(ModItems.NETHERITE_MAGE_LEGGINGS.get());

@@ -1,13 +1,10 @@
 package org.styly.arcanus.registry;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.styly.arcanus.Arcanus;
-import org.styly.arcanus.block.RitualBlock;
 import org.styly.arcanus.block.RitualBlockEntity;
 
 import java.util.function.Supplier;

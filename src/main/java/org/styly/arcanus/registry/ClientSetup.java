@@ -1,8 +1,6 @@
 package org.styly.arcanus.registry;
 
 
-import io.redspace.ironsspellbooks.block.pedestal.PedestalRenderer;
-import io.redspace.ironsspellbooks.registries.BlockRegistry;
 import io.redspace.ironsspellbooks.render.EnergySwirlLayer;
 import io.redspace.ironsspellbooks.render.SpellTargetingLayer;
 import net.minecraft.client.model.HumanoidModel;

@@ -1,6 +1,5 @@
 package org.styly.arcanus.item;
 
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.styly.arcanus.curios.BasicAttributeCurios;
 import top.theillusivec4.curios.api.SlotContext;

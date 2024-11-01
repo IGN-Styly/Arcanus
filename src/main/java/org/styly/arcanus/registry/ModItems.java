@@ -1,18 +1,16 @@
 package org.styly.arcanus.registry;
 
-import com.jcraft.jorbis.Block;
 import io.redspace.ironsspellbooks.api.item.weapons.ExtendedSwordItem;
 import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import io.redspace.ironsspellbooks.item.weapons.ExtendedWeaponTier;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.component.Unbreakable;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -22,13 +20,13 @@ import org.styly.arcanus.curios.BasicAttributeCurios;
 import org.styly.arcanus.item.*;
 import org.styly.arcanus.util.Curios;
 
-import java.util.ArrayList;
-import java.util.function.Supplier;
-
 public class ModItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Arcanus.MODID);
     //public static final DeferredItem<Item> BaseArtifact=ITEMS.register(BaseArtifactItem.identifier, BaseArtifactItem::new);
+
+    public static final DeferredItem<Item> MANA_VIAL = ITEMS.register("mana_vial",()->new ManaVialItem(new Item.Properties().stacksTo(4).fireResistant()));
+    public static final DeferredItem<Item> EMPTY_VIAL = ITEMS.register("empty_vial",()->new Item(new Item.Properties()));
     public static final DeferredItem<Item> Card = ITEMS.register("curios_card", () -> new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant()).withCardAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 100, AttributeModifier.Operation.ADD_VALUE)));
     //Runes
     public static final DeferredItem<Item> eldritch_rune = (DeferredItem<Item>) ITEMS.register("eldritch_rune", () -> new Item(new Item.Properties()));

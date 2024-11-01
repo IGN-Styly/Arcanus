@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.phys.Vec3;
-import org.styly.arcanus.block.RitualBlockEntity;
 
 
 public class RitualRenderer implements BlockEntityRenderer<RitualBlockEntity> {
