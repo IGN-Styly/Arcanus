@@ -26,5 +26,6 @@
   "ui.arcanus.spell.time": "Effect duration: %sm",
   "menu.arcanus.cast_error": "Your magic seems to be blocked.",
   "item.arcanus.empty_vial": "Empty Vial",
-  "item.arcanus.mana_vial": "Mana Vial"
+  "item.arcanus.mana_vial": "Mana Vial",
+  "enchantment.arcanus.holy": "Holy"
 }

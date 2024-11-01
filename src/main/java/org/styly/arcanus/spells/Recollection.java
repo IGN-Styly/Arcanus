@@ -46,7 +46,7 @@ public class Recollection extends AbstractSpell {
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(SchoolRegistry.HOLY_RESOURCE)
             .setMaxLevel(1)
-            .setCooldownSeconds(0)
+            .setCooldownSeconds(20)
             .build();
 
     public Recollection() {

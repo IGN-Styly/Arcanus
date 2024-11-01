@@ -1,0 +1,77 @@
+{
+  "description": {
+    "translate": "enchantment.arcanus.holy"
+  },
+  "anvil_cost": 0,
+  "supported_items": ["arcanus:excalibur"],
+  "weight": 10,
+  "max_level": 1,
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 10
+ },
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "effects": {
+    "minecraft:damage": [
+      {
+        "effect": {
+          "type": "minecraft:multiply",
+          "factor": {
+            "type": "minecraft:linear",
+            "base": 2.0,
+            "per_level_above_first": 1.0
+          }
+        }
+      }
+    ],
+    "minecraft:smash_damage_per_fallen_block": [
+      {
+      "effect": {
+        "type": "minecraft:add",
+        "value": {
+          "type": "minecraft:linear",
+          "base": 0.0,
+          "per_level_above_first": 4.0
+        }
+      }
+    }
+    ],
+    "minecraft:post_attack": [{
+    "affected": "victim",
+      "effect": {
+        "type": "minecraft:ignite",
+        "duration": {
+          "type": "minecraft:linear",
+          "base": 400000000.0,
+          "per_level_above_first": 4.0
+        }
+      },
+      "enchanted": "attacker",
+      "requirements": {
+        "condition": "minecraft:damage_source_properties",
+        "predicate": {
+          "is_direct": true
+        }
+      }
+    }],
+    "minecraft:attributes": [
+      {
+        "name": "block_interaction_range",
+        "attribute": "minecraft:player.block_interaction_range",
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 3,
+          "per_level_above_first": 1
+        },
+        "operation": "add_value",
+        "id": "3a4f09dc-231d-41ac-8c6b-ba5adb86ac0c"
+      }
+    ]
+  }
+}
