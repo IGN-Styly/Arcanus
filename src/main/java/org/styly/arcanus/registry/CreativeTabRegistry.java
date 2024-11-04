@@ -33,6 +33,7 @@ public class CreativeTabRegistry {
                 output.accept(ModItems.ARCANE_SILK.get());
 
                 output.accept(ModItems.RITUAL_TABLE_ITEM);
+                output.accept(ModItems.ETERNAL_STELLA);
                 output.accept(ModItems.MANA_VIAL);
                 output.accept(ModItems.EMPTY_VIAL);
 

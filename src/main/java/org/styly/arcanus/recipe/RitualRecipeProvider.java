@@ -1,6 +1,5 @@
 package org.styly.arcanus.recipe;
 
-import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -45,6 +44,6 @@ public class RitualRecipeProvider extends RecipeProvider {
                 ItemRegistry.ICE_CRYSTAL.get().getDefaultInstance(),
                 ItemRegistry.UPGRADE_ORB.get().getDefaultInstance(),
                 ItemRegistry.ICE_CRYSTAL.get().getDefaultInstance()))
-                .save(output,new ResourceLocation(Arcanus.MODID,"mana_vial"));
+                .save(output, new ResourceLocation(Arcanus.MODID, "mana_vial"));
     }
 }

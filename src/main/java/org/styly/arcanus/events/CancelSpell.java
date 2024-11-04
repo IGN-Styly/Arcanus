@@ -14,7 +14,7 @@ public class CancelSpell {
     public static void SpellPreCastEvent(SpellPreCastEvent event) {
         if (event.getEntity().hasEffect(ModEffects.MAGIC_BLOCKED)) {
             event.setCanceled(true);
-            event.getEntity().displayClientMessage(Component.translatable("menu.arcanus.cast_error"),true);
+            event.getEntity().displayClientMessage(Component.translatable("menu.arcanus.cast_error"), true);
         }
         var player = event.getEntity();
         Arcanus.LOGGER.warn("Casting");

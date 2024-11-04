@@ -28,5 +28,7 @@
   "item.arcanus.empty_vial": "Empty Vial",
   "item.arcanus.mana_vial": "Mana Vial",
   "enchantment.arcanus.holy": "Holy",
-  "description.arcanus.stella": "A Mythical Item that allows your items to become Umbreakble."
+  "description.arcanus.stella": "A Mythical Item that allows your items to become Unbreakable.",
+  "message.arcanus.umbreakable": "This Item Seems to be very sturdy!",
+  "item.arcanus.eternal_stella": "Eternal Stella"
 }

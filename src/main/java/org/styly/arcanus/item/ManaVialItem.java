@@ -2,15 +2,13 @@ package org.styly.arcanus.item;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.HoneyBottleItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.styly.arcanus.registry.ModEffects;
 
@@ -18,6 +16,7 @@ public class ManaVialItem extends HoneyBottleItem {
     public ManaVialItem(Properties pProperties) {
         super(pProperties);
     }
+
     @Override
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
         super.finishUsingItem(pStack, pLevel, pEntityLiving);
@@ -27,7 +26,7 @@ public class ManaVialItem extends HoneyBottleItem {
         }
 
         if (!pLevel.isClientSide) {
-            pEntityLiving.addEffect(new MobEffectInstance(ModEffects.MANA,20*30),pEntityLiving);
+            pEntityLiving.addEffect(new MobEffectInstance(ModEffects.MANA, 20 * 30), pEntityLiving);
         }
 
         if (pStack.isEmpty()) {

@@ -9,7 +9,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,7 +23,6 @@ import org.styly.arcanus.curios.BasicAttributeCurios;
 import org.styly.arcanus.item.*;
 import org.styly.arcanus.util.Curios;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModItems {
@@ -32,8 +30,8 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Arcanus.MODID);
     //public static final DeferredItem<Item> BaseArtifact=ITEMS.register(BaseArtifactItem.identifier, BaseArtifactItem::new);
 
-    public static final DeferredItem<Item> MANA_VIAL = ITEMS.register("mana_vial",()->new ManaVialItem(new Item.Properties().stacksTo(4).fireResistant()));
-    public static final DeferredItem<Item> EMPTY_VIAL = ITEMS.register("empty_vial",()->new Item(new Item.Properties()));
+    public static final DeferredItem<Item> MANA_VIAL = ITEMS.register("mana_vial", () -> new ManaVialItem(new Item.Properties().stacksTo(4).fireResistant()));
+    public static final DeferredItem<Item> EMPTY_VIAL = ITEMS.register("empty_vial", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> Card = ITEMS.register("curios_card", () -> new BasicAttributeCurios(new Item.Properties().stacksTo(1).fireResistant()).withCardAttributes(new AttributeContainer(AttributeRegistry.MAX_MANA, 100, AttributeModifier.Operation.ADD_VALUE)));
     //Runes
     public static final DeferredItem<Item> eldritch_rune = (DeferredItem<Item>) ITEMS.register("eldritch_rune", () -> new Item(new Item.Properties()));
@@ -50,9 +48,9 @@ public class ModItems {
 
     //ritual
     public static final DeferredItem<BlockItem> RITUAL_TABLE_ITEM = ITEMS.registerSimpleBlockItem(ArcanusBlockRegistry.RITUAL_TABLE_BLOCK);
-    public static final DeferredItem<Item> ETERNAL_STELLA = ITEMS.register("eternal_stella",()->new Item(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC).component(DataComponents.LORE,new ItemLore(
+    public static final DeferredItem<Item> ETERNAL_STELLA = ITEMS.register("eternal_stella", () -> new Stella(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC).component(DataComponents.LORE, new ItemLore(
             List.of(new MutableComponent[]{Component.translatable("description.arcanus.stella")})
-    ) )));
+    ))));
     //cool materials
     public static final DeferredItem<Item> ARCANE_SILK = ITEMS.register("arcane_silk", () -> new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
 
