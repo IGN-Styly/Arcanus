@@ -27,5 +27,6 @@
   "menu.arcanus.cast_error": "Your magic seems to be blocked.",
   "item.arcanus.empty_vial": "Empty Vial",
   "item.arcanus.mana_vial": "Mana Vial",
-  "enchantment.arcanus.holy": "Holy"
+  "enchantment.arcanus.holy": "Holy",
+  "description.arcanus.stella": "A Mythical Item that allows your items to become Umbreakble."
 }

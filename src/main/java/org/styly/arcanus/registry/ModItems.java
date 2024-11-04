@@ -5,12 +5,16 @@ import io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellDataRegistryHolder;
 import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.component.ItemLore;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -19,6 +23,9 @@ import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.curios.BasicAttributeCurios;
 import org.styly.arcanus.item.*;
 import org.styly.arcanus.util.Curios;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModItems {
 
@@ -43,7 +50,9 @@ public class ModItems {
 
     //ritual
     public static final DeferredItem<BlockItem> RITUAL_TABLE_ITEM = ITEMS.registerSimpleBlockItem(ArcanusBlockRegistry.RITUAL_TABLE_BLOCK);
-
+    public static final DeferredItem<Item> ETERNAL_STELLA = ITEMS.register("eternal_stella",()->new Item(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC).component(DataComponents.LORE,new ItemLore(
+            List.of(new MutableComponent[]{Component.translatable("description.arcanus.stella")})
+    ) )));
     //cool materials
     public static final DeferredItem<Item> ARCANE_SILK = ITEMS.register("arcane_silk", () -> new Item(new Item.Properties().fireResistant().stacksTo(16).rarity(Rarity.EPIC)));
 
