@@ -20,6 +20,7 @@ import org.styly.arcanus.Arcanus;
 import org.styly.arcanus.block.RitualRenderer;
 import org.styly.arcanus.effect.DarkVeilEffect;
 import org.styly.arcanus.entities.RecollectionRenderer;
+import org.styly.arcanus.entities.saberRender;
 import org.styly.arcanus.render.DarkVeilLayer;
 
 import static io.redspace.ironsspellbooks.render.EnergySwirlLayer.CHARGE_TEXTURE;
@@ -30,7 +31,7 @@ public class ClientSetup {
     public static void rendererRegister(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityRegistry.RecollectionEntity.get(), RecollectionRenderer::new);
         event.registerBlockEntityRenderer(ArcanusBlockEntityRegistry.RITUAL_TABLE.get(), RitualRenderer::new);
-
+        event.registerEntityRenderer(EntityRegistry.SABER.get(), saberRender::new);
     }
 
     @SubscribeEvent
